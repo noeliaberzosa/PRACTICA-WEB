@@ -13,4 +13,4 @@ COMPONENTES DE LA PÁGINA:
   Subelemento: receta (ingredientes, pasos, nickname, alérgenos, vegano o no, duración, para cuántas personas)
 
 LINK A GITHUB:
-
+https://github.com/noeliaberzosa/PRACTICA-WEB.git
