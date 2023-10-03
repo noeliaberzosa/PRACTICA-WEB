@@ -1,6 +1,6 @@
 # PRACTICA-WEB
 
-NOMBRE PÁGINA WEB://
+NOMBRE PÁGINA WEB:
 Cocina con la abuela
 
 MIEMBROS DEL GRUPO:
