@@ -20,12 +20,40 @@
                         <div class="col-md-1"></div>
                         <div class="col-md-4">
                             <img src="https://th.bing.com/th/id/OIP.-0Bx3xmvZf-QNh-17tMW4AHaFz?pid=ImgDet&rs=1">
-                            <h3>croquetas</h3>
+                            <h3>Croquetas</h3>
                         </div>
                         <div class="col-md-2">
                         </div>
                         <div class="col-md-4">
-                            <img src="https://th.bing.com/th/id/OIP.-0Bx3xmvZf-QNh-17tMW4AHaFz?pid=ImgDet&rs=1">
+                            <img src="https://www.saluzzocr.com/wp-content/uploads/2020/08/sangria-3.jpg">
+                            <h3>Sangría</h3>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <img src="https://lp-cms-production.imgix.net/image_browser/tacos_mexico_G.jpg?auto=format&q=75">
+                            <h3>Tacos</h3>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="http://media.syracuse.com/news/photo/2010/01/dominos-pizza-problem-nybz1jpg-462822621b2e04b3_large.jpg">
+                            <h3>Pizza</h3>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <img src="https://www.villarrazo.com/wp-content/uploads/2020/07/paella-1024x684.jpg">
+                            <h3>Paella</h3>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-4">
+
                         </div>
                         <div class="col-md-1"></div>
                     </div>
