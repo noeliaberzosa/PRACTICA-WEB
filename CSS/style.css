@@ -7,12 +7,24 @@ h1{
     margin-bottom: 40px;
     font-family: 'Brush Script MT', 'Lucida Handwriting', "Times New Roman";
 }
+h2{
+    text-align: center;
+    color: rgb(15, 15, 15);
+    font-size: 40px;
+    font-weight: 500;
+    font-family:'Copperplate Gothic Light', 'Times New Roman', Times, serif;
+}
 h3{
     text-align: center;
     font-size: 15px;
     margin-bottom: 30px;
     margin-top: 10px;
     font-family:'Copperplate Gothic Light', 'Times New Roman', Times, serif;
+}
+
+h5{
+    font-size: 11px;
+    font-family: 'Times New Roman', Times, serif;
 }
 img{
     display: block;
@@ -25,6 +37,10 @@ img{
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: rgb(223, 237, 247);
+}
+.col-md-10{
+    background-color: blanchedalmond;
+
 }
 body{
     background-image: url(/fondo.jpg);
