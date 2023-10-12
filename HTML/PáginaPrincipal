@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-4">
-                            <a href="Elemento1">
+                            <a href="Elemento1.html">
                             <img src="https://th.bing.com/th/id/OIP.-0Bx3xmvZf-QNh-17tMW4AHaFz?pid=ImgDet&rs=1">
                             </a>
                             <h3>Croquetas</h3>
@@ -27,7 +27,7 @@
                         <div class="col-md-2">
                         </div>
                         <div class="col-md-4">
-                            <a href="Elemento1">
+                            <a href="Elemento1.html">
                             <img src="https://www.saluzzocr.com/wp-content/uploads/2020/08/sangria-3.jpg">
                             </a>
                             <h3>Sangría</h3>
@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-4">
-                            <a href="Elemento1">
+                            <a href="Elemento1.html">
                             <img src="https://lp-cms-production.imgix.net/image_browser/tacos_mexico_G.jpg?auto=format&q=75">
                             </a>
                             <h3>Tacos</h3>
@@ -45,7 +45,7 @@
                         <div class="col-md-2">
                         </div>
                         <div class="col-md-4">
-                            <a href="Elemento1">
+                            <a href="Elemento1.html">
                             <img src="http://media.syracuse.com/news/photo/2010/01/dominos-pizza-problem-nybz1jpg-462822621b2e04b3_large.jpg">
                             </a>
                             <h3>Pizza</h3>
@@ -55,7 +55,7 @@
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-4">
-                            <a href="Elemento1">
+                            <a href="Elemento1.html">
                             <img src="https://www.villarrazo.com/wp-content/uploads/2020/07/paella-1024x684.jpg">
                             </a>
                             <h3>Paella</h3>
@@ -63,7 +63,7 @@
                         <div class="col-md-2">
                         </div>
                         <div class="col-md-4">
-                            <a href="Elemento1">
+                            <a href="Elemento1.html">
                             <img src=https://th.bing.com/th/id/R.25d661abbc741987a0f958063e46f529?rik=oP8B0WxmqTpq%2fQ&riu=http%3a%2f%2fwww.cadenadial.com%2fwp-content%2fuploads%2f2014%2f11%2fimagen-plato-saludable.jpg&ehk=qK8nlH9JgdsLJABpuTmhawVsdVSOFKy0eQHS3QKxkSI%3d&risl=&pid=ImgRaw&r=0>
                             </a>
                             <h3>Ensalada</h3>
@@ -73,7 +73,7 @@
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-4">
-                            <a href="Elemento1">
+                            <a href="Elemento1.html">
                             <img src="https://th.bing.com/th/id/OIP.P68JotRqfNNb6c-fVroj4QHaE8?pid=ImgDet&rs=1">
                             </a>
                             <h3>Tiramisú</h3>
@@ -81,7 +81,7 @@
                         <div class="col-md-2">
                         </div>
                         <div class="col-md-4">
-                            <a href="Elemento1">
+                            <a href="Elemento1.html">
                             <img src=https://th.bing.com/th/id/OIP.wUlXrORlStkR9i_CeXrOHAHaFA?pid=ImgDet&rs=1>
                             </a>
                             <h3>Batidos</h3>
@@ -91,7 +91,7 @@
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-4">
-                            <a href="Elemento1">
+                            <a href="Elemento1.html">
                             <img src="https://th.bing.com/th/id/OIP.Obt_h74xggz2JD7oI2HQIgHaE3?pid=ImgDet&rs=1">
                             </a>
                             <h3>Tortitas</h3>
@@ -99,17 +99,28 @@
                         <div class="col-md-2">
                         </div>
                         <div class="col-md-4">
-                            <a href="Elemento1">
+                            <a href="Elemento1.html">
                             <img src="https://img-aws.ehowcdn.com/640/cme/photography.prod.demandstudios.com/3f4d7692-01b1-4ec0-af12-deac9d49178e.jpg">
                             </a>
                             <h3>San Francisco</h3>
                         </div>
                         <div class="col-md-1"></div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-2">
+                            <a href="NuevoElemento.html">
+                            <button> Añadade tu plato </button>
+                            </a>
+                        </div>
+                        <div class="col-md-5"></div>
+                    </div>
+                    <div class="row">
+                          <h1></h1> 
+                    </div>
                 </div>
             </div>
             <div class="col-md-2"></div>
-            
         </div>
     </div>
 </body>

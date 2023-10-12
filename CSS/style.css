@@ -45,3 +45,14 @@ img{
 body{
     background-image: url(/fondo.jpg);
 }
+button{
+    
+    font-family:Candara, Tahoma, Geneva, Verdana, sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: aliceblue;
+    font-weight: bolder;
+    width: auto;
+    border-radius: 15px;
+    border-width: 3px;
+    border-color: rgb(16, 95, 206);
+    background-color: rgb(82, 120, 197);
+}
