@@ -15,11 +15,83 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <h1>Cocina con la abuela</h1>
+                <h4>Rellene los siguientes campos:</h4>
                 <div class="container">
-                    
-                       
+                    <div class="row">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="nick">Nickname: </label>
+                                <input type="text" class="form-control" id="nick" placeholder="Introduce tu nickname">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Nombre del plato: </label>
+                                <input type="text" class="form-control" id="name" placeholder="Introduce el nombre de tu plato">
+                            </div>
+                            <div class="form-group">
+                                <label for="Descripcion">Descripción del plato:</label>
+                                <textarea class="form-control" id="Descripcion" rows="3" placeholder="Introduce una breve descripción del plato"></textarea>
+                              </div>
+                            <div class="form-group">
+                                <label for="urlP">Foto del plato: </label>
+                                <input type="url" class="form-control" id="urlP" placeholder="Introduce el link a la foto de tu plato">
+                            </div>
+                            <div class="form-group">
+                                <label for="origen">Origen del plato: </label>
+                                <input type="text" class="form-control" id="origen" placeholder="Introduce la nacionalidad de origen">
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo">Tipo de plato: </label>
+                                <select class="form-select" id="tipo">
+                                    <option>Postre</option>
+                                    <option>Bebida</option>
+                                    <option>Plato principal</option>
+                                    <option>Aperitivo</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo">Contiene: </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <input type="checkbox" class="form-check-input" id="alergenos">
+                                <label class="form-check-inline" for="alergenos">Pescado</label>
+                            </div>
+                            <div class="form-check-inline">
+                                <input type="checkbox" class="form-check-input" id="alergenos">
+                                <label class="form-check-inline" for="alergenos">Carne</label>
+                            </div>
+                            <div class="form-check-inline">
+                                <input type="checkbox" class="form-check-input" id="alergenos">
+                                <label class="form-check-inline" for="alergenos">Frutos Secos</label>
+                            </div>
+                            <div class="form-check-inline">
+                                <input type="checkbox" class="form-check-input" id="alergenos">
+                                <label class="form-check-inline" for="alergenos">Lactosa</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="coste">Coste del plato: </label>
+                                <input type="number" class="form-control" id="coste" min="0" placeholder="Introduce el coste del plato aproximado">
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="row">
+                        <h1></h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10"></div>
+                        <div class="col-md-1">
+                            <button id="BotonPagN_G">Guardar</button>
+                        </div>
+                        <div class="col-md-1">
+                            <a href="PáginaPrincipal">
+                                <button id="BotonPagN_C">Cancelar</button>
+                            </a>
+                        </div>
+                        <div class="row">
+                            <h1></h1>
+                        </div>
+                    </div>
                 </div>
-            </div>
 </body>
 
 </html>
