@@ -65,9 +65,10 @@ button{
     font-weight: bolder;
     border-radius: 10px;
     border-width: 3px;
-    font-size: 12px;
+    font-size: 13px;
     border-color: rgb(165, 16, 206);
     background-color: rgb(222, 176, 246);
+    margin-left:5 px;
 }
 #BotonPagN_C{
 
@@ -76,9 +77,10 @@ button{
     font-weight: bolder;
     border-radius: 10px;
     border-width: 3px;
-    font-size: 12px;
+    font-size: 13px;
     border-color: rgb(206, 16, 83);
     background-color: rgb(246, 176, 184);
+    
 }
 form{
     font-family:Candara, Tahoma, Geneva, Verdana, sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif;
