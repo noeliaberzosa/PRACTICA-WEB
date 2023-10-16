@@ -47,7 +47,7 @@ img{
 body{
     background-image: url(/fondo.jpg);
 }
-button{
+#BotonPagP{
     
     font-family:Candara, Tahoma, Geneva, Verdana, sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: aliceblue;
