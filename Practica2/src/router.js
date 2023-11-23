@@ -16,4 +16,15 @@ router.post("/new",(req,res)=>{
         platos: servidor.getPlatos()
     });
 });
+router.get('/plato/:id', (req, res) => {
+    let plato = servidor.getPlato(req.params.id);
+res.render('elemento', { plato});
+});
+router.get("/plato/:id/delete",(req,res)=>{
+    servidor.deletePlato(req.params.id);
+    res.render('principal', {
+        platos: servidor.getPlatos()
+    });
+});
+
 export default router;

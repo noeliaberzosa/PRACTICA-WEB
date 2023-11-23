@@ -17,13 +17,13 @@
                 <h1>Cocina con la abuela</h1>
                 <div class="container">
                     {{#platos}}
-                    <a href="plato/{{id}}"><img src= "{{imagen}}" class="img-fluid"></a>
+                    <a href="plato/{{id}}"><img src= "{{imagen}}" class="img-fluid"></a><br>
                     <h3>{{nombre}}</h3>
                     {{/platos}}
                     {{^platos}}
                     <h3>No hay platos guardados</h3>
                     {{/platos}}
-
+                    <br>
                         <a href="new.html">
                             <button type="button" class="btn btn-default btn-sm" id="BotonPagP">+ Añade tu
                                 plato</button>
