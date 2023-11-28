@@ -55,6 +55,7 @@ export function addPlato(plato) {
     let id = nextId++;
     plato.id = id.toString();
     platos.set(plato.id, plato);
+    return plato.id;
 }
 
 export function deletePlato(id) {
