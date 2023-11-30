@@ -51,6 +51,22 @@ addPlato({
     "Hoy en día, los batidos son una opción versátil y personalizable. Desde batidos verdes energizantes hasta indulgentes mezclas de frutas con helado, ofrecen una variedad infinita de sabores y nutrientes. Ya sea como un desayuno rápido, un refrigerio saludable o un placer indulgente, los batidos han encontrado su lugar en la rutina diaria de muchos, brindando sabor y vitalidad en cada sorbo. ¡Una oda líquida a la frescura y la creatividad culinaria!",
     origen: "Estados Unidos", tipo: "Bebidas", precio:"2"})
 
+
+export function validar(plato){
+    let error = 0;
+    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+
+    if (typeof plato.nombre === 'undefined' || typeof plato.descripcion === 'undefined'||typeof plato.imagen === 'undefined'|| typeof plato.origen === 'undefined'||typeof plato.tipo === 'undefined'||typeof plato.precio === 'undefined'){
+        error=  "Completa todos los campos";
+    }
+    else if(!(Number(plato.precio))){
+        error="El precio debe ser un número";
+    }
+    else if (!(urlRegex.test(plato.imagen))){
+        error = "Debes introducir una URL en el campo de la foto del plato"
+    }
+    return error;
+}
 export function addPlato(plato) {
     let id = nextId++;
     plato.id = id.toString();
@@ -63,7 +79,21 @@ export function deletePlato(id) {
 }
 
 export function getPlatos() {
-    return [...platos.values()];
+    const platos1 = new Map();
+    const platos2 = new Map();
+    let i = 0
+    for (let key of platos.keys()){
+        if (i % 2 === 0){
+            platos1.set(key,platos.get(key));
+        }
+        else{
+            platos2.set(key,platos.get(key));
+        }
+        i ++;
+    }
+    return {
+        platos1:[...platos1.values()],
+        platos2:[...platos2.values()]};
 }
 
 export function getPlato(id) {
