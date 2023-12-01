@@ -61,19 +61,19 @@ router.post('/updated/:id',(req,res)=>{
             servidor.setNombre(plato,nombre);
         }
         if (imagen !== plato.imagen){
-            servidor.setIm(plato,nombre);
+            servidor.setIm(plato,imagen);
         }
         if (descripcion !== plato.descripcion){
-            servidor.setDes(plato,nombre);
+            servidor.setDes(plato,descripcion);
         }
         if (origen !== plato.origen){
-            servidor.setOrigen(plato,nombre);
+            servidor.setOrigen(plato,origen);
         }
         if (tipo !== plato.tipo){
-            servidor.setTipo(plato,nombre);
+            servidor.setTipo(plato,tipo);
         }
         if (precio !== plato.precio){
-            servidor.setPrecio(plato,nombre);
+            servidor.setPrecio(plato,precio);
         }
         let platos1
         let platos2
