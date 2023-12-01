@@ -40,7 +40,7 @@
                         <div class="col-md-6">
                             <h5><strong>Origen:</strong> {{plato.origen}}</h5>
                             <h5><strong>Tipo:</strong> {{plato.tipo}}</h5>
-                            <h5><strong>Precio:</strong> {{plato.precio}}</h5>
+                            <h5><strong>Precio (euros):</strong> {{plato.precio}}</h5>
                         </div>
                         <div class="row">
                             <h1></h1>
@@ -48,7 +48,8 @@
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-1">
-                                <button type="button" class="btn btn-default btn-sm" id="BotonPagE">Editar</button>
+                                <a href="/editar/{{plato.id}}" class="btn btn-default btn-sm" id="BotonPagE">Editar</a>
+                                
                             </div>
                             <div class="col-md-2"></div>
                             <div class="col-md-1">
