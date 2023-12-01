@@ -75,14 +75,9 @@ router.post('/updated/:id',(req,res)=>{
         if (precio !== plato.precio){
             servidor.setPrecio(plato,precio);
         }
-        let platos1
-        let platos2
-        platos1 = servidor.getPlatos().platos1;
-        platos2 = servidor.getPlatos().platos2;
-        res.render('principal', {
-            platos1: platos1,
-            platos2: platos2
-        });}else{
+        
+        res.render('elemento', { plato});}
+        else{
 
             res.render('error',{
                 error: error
