@@ -51,6 +51,41 @@ addPlato({
     "Hoy en día, los batidos son una opción versátil y personalizable. Desde batidos verdes energizantes hasta indulgentes mezclas de frutas con helado, ofrecen una variedad infinita de sabores y nutrientes. Ya sea como un desayuno rápido, un refrigerio saludable o un placer indulgente, los batidos han encontrado su lugar en la rutina diaria de muchos, brindando sabor y vitalidad en cada sorbo. ¡Una oda líquida a la frescura y la creatividad culinaria!",
     origen: "Estados Unidos", tipo: "Bebidas", precio:"2"})
 
+addPlato({
+    nombre: "San Francisco", imagen: "https://img-aws.ehowcdn.com/640/cme/photography.prod.demandstudios.com/3f4d7692-01b1-4ec0-af12-deac9d49178e.jpg", descripcion: "La historia del cóctel San Francisco se remonta a la década de 1940. Aunque hay varias versiones sobre su origen, la más aceptada es que fue creado en el famoso Hotel Fairmont en San Francisco, California."+
+    "Una de las historias más conocidas sobre la creación del cóctel San Francisco es que fue inventado en honor a la Conferencia de las Naciones Unidas sobre Organización Internacional (ONU) que tuvo lugar en San Francisco en 1945. Durante la conferencia, se dice que los delegados de diferentes países se reunieron en el Hotel Fairmont y el barman del hotel creó esta bebida para conmemorar el evento.",
+    origen: "Estados Unidos", tipo: "Bebidas", precio:"4"})
+
+addPlato({
+    nombre: "Tortitas", imagen: "https://th.bing.com/th/id/OIP.Obt_h74xggz2JD7oI2HQIgHaE3?pid=ImgDet&rs=1", descripcion: "La idea de hacer tortitas o panqueques tiene una larga historia, y se cree que las versiones tempranas de este plato se remontan a las civilizaciones antiguas. Por ejemplo, los griegos y los romanos consumían una especie de panqueque plano hecho con harina, leche y huevos."+
+    "Durante la Edad Media, los panqueques se volvieron populares en Europa, y se les asociaba a menudo con celebraciones y festividades, como el Martes de Carnaval antes de la Cuaresma. En esta época, los panqueques también eran conocidos como flapjacks. Por otro lado, los colonizadores europeos llevaron la tradicción de hacer tortitas a América. "+
+    "A lo largo del siglo XX, las tortitas se convirtieron en un desayuno común en muchos países occidentales.",
+    origen: "Europa", tipo: "Postre", precio:"4"})
+
+addPlato({
+    nombre: "Miguelitos", imagen: "https://imag.bonviveur.com/miguelitos-de-la-roda-rellenos-de-crema.jpg", descripcion: "Los miguelitos de La Roda son un delicioso postre español originario de La Roda, una localidad situada en la provincia de Albacete, en la región de Castilla-La Mancha. Su historia se remonta a mediados del siglo XX y está vinculada a la tradición de la pastelería local."+
+    "La historia específica de los miguelitos puede variar según la versión, pero generalmente se atribuye a la creatividad de pasteleros locales que buscaban innovar y ofrecer algo único. Se dice que el nombre miguelitos se originó en honor al patrón de la localidad, San Miguel.",
+    origen: "España", tipo: "Postre", precio:"5"})
+
+addPlato({
+    nombre: "Tortilla", imagen: "https://s3.abcstatics.com/media/bienestar/2020/05/22/tortilla-patatas-k9tF--620x349@abc.jpeg", descripcion: "Si nos centramos en la tortilla española, o tortilla de patatas, tiene una historia más reciente y se remonta al siglo XIX. La versión más conocida de esta tortilla lleva patatas (papas), huevos y cebollas. Se dice que la tortilla de patatas se originó en"+
+    "la región de Extremadura o Navarra y se popularizó en toda España. Es un plato versátil que se ha convertido en un elemento básico de la cocina española. Por otro lado, si nos fijamos en la tortilla francesa, también conocida como omelette en francés, tiene sus raíces en Francia y es un plato fundamental de la cocina francesa. Su origen se remonta a tiempos antiguos, y su popularidad ha perdurado hasta la actualidad."+
+    "La omelette francesa se ha convertido en un plato icónico y se sirve tanto como un desayuno sustancioso como en comidas más elegantes.",
+    origen: "España/Francia", tipo: "Plato principal", precio:"6"})
+
+addPlato({
+    nombre: "Arepas", imagen: "https://imag.bonviveur.com/arepas-venezolanas-caseras-rellenas.jpg", descripcion: "Las arepas son un alimento fundamental en la cocina de varios países latinoamericanos, especialmente en Venezuela y Colombia. Estas deliciosas piezas de masa de maíz han sido parte de la dieta tradicional durante siglos."+
+    "Las arepas tienen sus raíces en las culturas indígenas precolombinas de América Latina. Las poblaciones indígenas, especialmente en la región andina y en lo que hoy es Venezuela y Colombia, ya estaban cultivando y consumiendo maíz mucho antes de la llegada de los colonizadores europeos.",
+    origen: "América Latina", tipo: "Plato principal", precio:"2"})
+
+addPlato({
+    nombre: "Rollitos de primavera", imagen: "https://cdn2.cocinadelirante.com/sites/default/files/images/2018/04/receta-rollitos-primavera-con-tortilla-de-harina.jpg", 
+    descripcion: "Los rollitos de primavera tienen sus raíces en la cocina china, donde se conocen como chūn juǎn. La palabra chūn significa primavera, lo que sugiere que estos rollos están asociados con la estación. Aunque la relación exacta con la primavera no está clara, se cree que el nombre puede estar vinculado a las festividades asociadas con el Año Nuevo chino."+
+    "Se cree que los rollitos de primavera existen desde hace siglos en China. Originalmente, estos rollos eran más bien crudos, hechos con ingredientes frescos y luego cocidos al vapor. Con el tiempo, la técnica de freírlos se volvió popular, lo que dio lugar a la versión más conocida y difundida en Occidente.",
+    origen: "Asia", tipo: "Aperitivo", precio:"3"})
+
+
+
 
 export function validar(plato){
     let error = 0;
