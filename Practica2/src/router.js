@@ -57,24 +57,7 @@ router.post('/updated/:id',(req,res)=>{
     let error = servidor.validar({nombre, imagen, descripcion, origen, tipo, precio});
     if(error==0){
         let plato = servidor.getPlato(req.params.id);
-        if (nombre !== plato.nombre){
-            servidor.setNombre(plato,nombre);
-        }
-        if (imagen !== plato.imagen){
-            servidor.setIm(plato,imagen);
-        }
-        if (descripcion !== plato.descripcion){
-            servidor.setDes(plato,descripcion);
-        }
-        if (origen !== plato.origen){
-            servidor.setOrigen(plato,origen);
-        }
-        if (tipo !== plato.tipo){
-            servidor.setTipo(plato,tipo);
-        }
-        if (precio !== plato.precio){
-            servidor.setPrecio(plato,precio);
-        }
+        servidor.editarCampos({nombre, imagen, descripcion, origen, tipo, precio},plato);
         
         res.render('elemento', { plato});}
         else{

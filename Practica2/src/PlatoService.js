@@ -154,3 +154,23 @@ export function setPrecio(plato,precio){
     plato.precio=precio
 }
 
+export function editarCampos(platoN,plato){
+    if (platoN.nombre !== plato.nombre){
+        setNombre(plato,platoN.nombre);
+    }
+    if (platoN.imagen !== plato.imagen){
+        setIm(plato,platoN.imagen);
+    }
+    if (platoN.descripcion !== plato.descripcion){
+        setDes(plato,platoN.descripcion);
+    }
+    if (platoN.origen !== plato.origen){
+        setOrigen(plato,platoN.origen);
+    }
+    if (platoN.tipo !== plato.tipo){
+        setTipo(plato,platoN.tipo);
+    }
+    if (platoN.precio !== plato.precio){
+        setPrecio(plato,platoN.precio);
+    }
+}
