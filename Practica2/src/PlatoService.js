@@ -366,13 +366,13 @@ export function setTipo(plato,tipo){
 export function setPrecio(plato,precio){
     plato.precio=precio
 }
-export function addReceta(plato,receta){
-    return plato.recetas.push(receta);
-}
+//export function addReceta(plato,receta){
+ ///   return plato.recetas.push(receta);
+//}
 //export function addReceta(receta){
  //   addPlato.receta.
 //}
-export class Receta{
+/*export class Receta{
     constructor(nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano){
         this.nombreR=nombreR;
         this.usuario=usuario;
@@ -385,6 +385,11 @@ export class Receta{
         this.vegano=vegano;
     }
 }
+
+export function addReceta(receta){
+    recetas.push(receta)
+}
+*/
 export function editarCampos(platoN,plato){
     if (platoN.nombre !== plato.nombre){
         setNombre(plato,platoN.nombre);
@@ -403,5 +408,11 @@ export function editarCampos(platoN,plato){
     }
     if (platoN.precio !== plato.precio){
         setPrecio(plato,platoN.precio);
+    }
+}
+export function aniadirReceta(id,nuevaReceta,plato){
+    if(platos.has(id)){
+        const platoN = platos.get(id);
+        platoN.recetas.push(nuevaReceta);
     }
 }

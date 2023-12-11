@@ -62,7 +62,10 @@ router.post('/updated/:id',(req,res)=>{
         let plato = servidor.getPlato(req.params.id);
         servidor.editarCampos({nombre, imagen, descripcion, origen, tipo, precio},plato);
         
-        res.render('elemento', { plato});}
+        res.render('elemento', { 
+            plato,
+            recetas: plato.recetas
+        });}
         else{
 
             res.render('error',{
@@ -71,26 +74,20 @@ router.post('/updated/:id',(req,res)=>{
         }
 });
 
-router.post('/updatedReceta', (req,res)=> {
-    let rec = new servidor.Receta(
-        req.body.nombreR,
-        req.body.usuario,
-        req.body.ingredientes,
-        req.body.imagenR,
-        req.body.personas,
-        req.body.duracion,
-        req.body.pasos,
-        req.body.alergenos,
-        req.body.vegano
-    );
-    let error = servidor.validarRec(rec);
-    if(error == 0){
+router.post('/updatedreceta/:id',(req,res)=> {
+    let {nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano} = req.body;
+    let error = servidor.validarRec(req.body);
+    if(error==0){
         let plato = servidor.getPlato(req.params.id);
-        plato.recetas.push(rec);
 
-        res.render('elemento', {plato})
+        servidor.aniadirReceta(req.params.id,{nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano},plato);
 
-    }else {
+        res.render('elemento', {
+            plato:req.body,
+            recetas:servidor.getPlato().recetas
+        });}
+
+    else {
         res.render('error',{
             error:error
         })
