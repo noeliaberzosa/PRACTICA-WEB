@@ -69,4 +69,125 @@
                 </div>
             </div>
         </div>
-       </html>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1>Cocina con la abuela</h1>
+                <h4>Rellene los siguientes campos:</h4>
+                <div class="container">
+                    <div class="row">
+                        <form role="form" action="/updatedreceta" method="post">
+                            <div class="form-group">
+                                <label for="nameR">Nombre de la receta: </label>
+                                <input type="text" class="form-control" id="nameR" name="nombreR"
+                                    placeholder="Introduce el nombre de la receta" >
+                            </div>
+                            <div class="form-group">
+                                <label for="user">Nombre de usuario: </label>
+                                <input type="text" class="form-control" id="user" name="usuario"
+                                    placeholder="Introduce el nombre de usuario" >
+                            </div>
+                            <div class="form-group">
+                                <label for="ingred">Ingredientes: </label>
+                                <textarea class="form-control" id="ingred" rows="3" name="ingredientes"
+                                    placeholder="Indique los ingredientes necesarios"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="urlR">Foto del plato: </label>
+                                <input  class="form-control" id="urlR" name="imagenR"
+                                    placeholder="Introduce el link a la foto de tu plato" >
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="pers">Numero de personas: </label>
+                                <input  class="form-control" id="pers" min="0" name="personas"
+                                    placeholder="Para x numero de personas" >
+                            </div>
+                            <div class="form-group">
+                                <label for="tiempo">Duracion: </label>
+                                <input  class="form-control" id="tiempo" min="0" name="duracion"
+                                    placeholder="Indique el tiempo (en horas) aproximado de elaboracion" >
+                            </div>
+                            <div class="form-group">
+                                <label for="instrucciones">Instrucciones: </label>
+                                <textarea class="form-control" id="instrucciones" rows="9" name="pasos"
+                                    placeholder="Indique los pasos a realizar"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo">Puede contener: </label>
+                                <select class="form-select" id="alergia" name="alergenos" >
+                                    <option>Sin posibles alergias</option>
+                                    <option>Pescado</option>
+                                    <option>Carne</option>
+                                    <option>Frutos secos</option>
+                                    <option>Lactosa</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo">Vegano: </label>
+                                <select class="form-select" id="vegano" name="vegano" >
+                                    <option>SÍ</option>
+                                    <option>NO</option>
+                                </select>
+                            </div>
+                            </div>
+                             <div class="row">
+                             <h1></h1>
+                             </div>
+                             <div class="row">
+                             <div class="col-md-8"></div>
+                            <div class="col-md-1">
+                                <button type="submit" class="btn btn-default btn-sm"  id="BotonPagG">Guardar</button>
+                             </div>
+                        </form>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+                            <a href="/" class="btn btn-default btn-sm" id="BotonPagN_C">Cancelar</a>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="row">
+                            <h1></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {{#recetas}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h3><strong>{{nombreR}}</strong> - {{usuario}}</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img
+                                src={{imagenR}}  class="img-fluid">
+                        </div>
+                        <div class="container">
+                            <h3></h3>
+                            <div class="row">
+                                <div class="col-md-12">      
+                                    <h5><strong>Ingredientes: </strong>{{ingredientes}}</h5>
+                                    <h5><strong>Para </strong>{{personas}} personas</h5>
+                                    <h5><strong>Duración:</strong> {{duracion}} h</h5>
+                                    <h5><strong>Pasos: </strong>{{pasos}}</h5>
+                                    <h5><strong>Alérgenos: </strong>{{alergenos}}</h5>
+                                    <h5><strong>Vegano: </strong>{{vegano}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/recetas}}
+            
+
+</html>
