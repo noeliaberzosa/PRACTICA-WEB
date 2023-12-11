@@ -83,8 +83,8 @@ router.post('/updatedreceta/:id',(req,res)=> {
         servidor.aniadirReceta(req.params.id,{nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano},plato);
 
         res.render('elemento', {
-            plato:req.body,
-            recetas:servidor.getPlato().recetas
+            plato,
+            recetas:plato.recetas
         });}
 
     else {
