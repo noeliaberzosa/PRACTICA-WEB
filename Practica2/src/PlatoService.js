@@ -382,6 +382,9 @@ export function editarCampos(platoN,plato){
 export function aniadirReceta(id,nuevaReceta,plato){
     if(platos.has(id)){
         const platoN = platos.get(id);
+        if (platoN.recetas==undefined){
+            platoN.recetas=[];
+        }
         platoN.recetas.push(nuevaReceta);
     }
 }
