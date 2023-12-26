@@ -367,25 +367,24 @@ export function deletePlato(id) {
     platos.delete(id);
 }
 
-/*export function getPlatos() {
-   const platos1 = new Map();
-    const platos2 = new Map();
+export function divPlatos(platos) {
+    let platos1 = new Array();
+    let platos2 = new Array();
     let i = 0
-    for (let key of platos.keys()) {
+    for (i; i < platos.length; i++) {
         if (i % 2 === 0) {
-            platos1.set(key, platos.get(key));
+            platos1.push(platos[i]);
         }
         else {
-            platos2.set(key, platos.get(key));
+            platos2.push(platos[i]);
         }
-        i++;
     }
     return {
         platos1: [...platos1.values()],
         platos2: [...platos2.values()]
     };
 }
-*/
+
 export function getPlato(id) {
     return platos.get(id);
 }
@@ -393,7 +392,18 @@ export function getPlato(id) {
 export function getPlatos(from, to) {
     let values = [...platos.values()];
     if (from !== undefined) {
-        return values.slice(from, to);
+        if ((from + 2) === (platos.size)) {
+            return {
+                platos1: values.slice(from, from + 1),
+                platos2: values.slice(from + 1, from + 2)
+            }
+        }
+        else {
+            return {
+                platos1: values.slice(from, from + 2),
+                platos2: values.slice(from + 2, to)
+            }
+        }
     } else {
         return values;
     }
@@ -436,7 +446,7 @@ export function editarCampos(platoN, plato) {
         setPrecio(plato, platoN.precio);
     }
 }
-export function aniadirReceta(id, nuevaReceta, plato) {
+export function aniadirReceta(id, nuevaReceta, platos) {
     if (platos.has(id)) {
         const platoN = platos.get(id);
         if (platoN.recetas == undefined) {
@@ -446,4 +456,15 @@ export function aniadirReceta(id, nuevaReceta, plato) {
     }
 }
 
+export function getBuscados(buscado) {
+    let platosBuscados = new Array();
+    for (let key of platos.keys()) {
+        if ((platos.get(key).nombre).includes(buscado)) {
+            let plato = platos.get(key);
+            plato.id = key;
+            platosBuscados.push(plato);
+        }
+    }
+    return platosBuscados;
+}
 loadData();

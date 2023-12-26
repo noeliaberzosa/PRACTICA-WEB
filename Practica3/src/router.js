@@ -6,8 +6,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
     let platos1
     let platos2
-    platos1 = servidor.getPlatos(0,2)
-    platos2 = servidor.getPlatos(2,4);
+    platos1 = servidor.getPlatos(0,4).platos1;
+    platos2 = servidor.getPlatos(0,4).platos2;
     res.render('principal', {
         platos1: platos1,
         platos2: platos2
@@ -96,11 +96,22 @@ router.post('/updatedreceta/:id',(req,res)=> {
 router.get("/platos",(req,res)=>{
     const from = parseInt(req.query.from);
     const to = parseInt(req.query.to);
-    let platos = servidor.getPlatos(from,to);
-
+    let platos1 = servidor.getPlatos(from,to).platos1;
+    let platos2 = servidor.getPlatos(from,to).platos2;
     res.render('platos', {
-        platos: platos
+        platos1: platos1,
+        platos2: platos2
     });
 }); 
+router.get("/search",(req,res)=>{
+    const buscado = req.query.buscado;
+    let platosBus = servidor.getBuscados(buscado);
+    let platos1 = servidor.divPlatos(platosBus).platos1;
+    let platos2 = servidor.divPlatos(platosBus).platos2;
+    res.render('platos', {
+        platos1: platos1,
+        platos2: platos2
+    });
+});
 
 export default router;

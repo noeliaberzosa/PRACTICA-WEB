@@ -10,12 +10,24 @@
 </head>
 
 <body>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            {{#platos1}}
+            <a href="/plato/{{id}}"><img src="{{imagen}}"></a>
+            <h3>{{nombre}}</h3>
+            {{/platos1}}
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            {{#platos2}}
+            <a href="/plato/{{id}}"><img src="{{imagen}}"></a>
+            <h3>{{nombre}}</h3>
+            {{/platos2}}
+        </div>
+        <div class="col-md-1"></div>
+    </div>
 
-    {{#platos}}
-    <a href="/plato/{{id}}"><img src="{{imagen}}"></a>
-    <h3>{{nombre}}</h3>
-    {{/platos}}
-    
 
 </body>
 

@@ -125,3 +125,23 @@ form{
     color: rgb(0, 0, 0);
 
 }
+#Buscador{
+    display: flex;
+    flex-wrap: nowrap;
+}
+#BotonBus{
+    font-family:Candara, Tahoma, Geneva, Verdana, sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: aliceblue;
+    font-weight: bolder;
+    margin: auto;
+    border-width: 3px;
+    border-color: rgb(16, 95, 206);
+    background-color: rgb(82, 120, 197);
+}
+#imgBus{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 18px;
+    height: 18px;
+}
