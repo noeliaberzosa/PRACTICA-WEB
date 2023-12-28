@@ -170,6 +170,7 @@ form{
 	font-size: 12px;
 	margin-bottom: 0;
 	display: none;
+    color: #bb2929;
 }
 
 .formulario__input-error-activo {
@@ -265,19 +266,4 @@ form{
 }
 
 
-/* ----- -----  Mediaqueries ----- ----- */
-@media screen and (max-width: 800px) {
-	.formulario {
-		grid-template-columns: 1fr;
-	}
 
-	.formulario__grupo-terminos, 
-	.formulario__mensaje,
-	.formulario__grupo-btn-enviar {
-		grid-column: 1;
-	}
-
-	.formulario__btn {
-		width: 100%;
-	}
-}
