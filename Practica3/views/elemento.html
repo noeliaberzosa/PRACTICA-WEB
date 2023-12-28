@@ -78,43 +78,55 @@
                 <h4>Rellene los siguientes campos:</h4>
                 <div class="container">
                     <div class="row">
-                        <form role="form" action='/updatedreceta/{{plato.id}}' method="post">
-                            <div class="form-group">
-                                <label for="nameR">Nombre de la receta: </label>
-                                <input type="text" class="form-control" id="nameR" name="nombreR"
-                                    placeholder="Introduce el nombre de la receta" >
+                        <form role="form" action='/updatedreceta/{{plato.id}}' method="post" id="formulario">
+                            <div class="formulario__grupo" id="grupo__nombreR">
+                                <label for="nombreR" class="formulario__label">Nombre de la receta:</label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="nombreR" id="nombreR" placeholder="Introduce el nombre de la receta">
+                                </div>
+                                <p class="formulario__input-error">El nombre debe empezar por mayúscula.</p>
                             </div>
-                            <div class="form-group">
-                                <label for="user">Nombre de usuario: </label>
-                                <input type="text" class="form-control" id="user" name="usuario"
-                                    placeholder="Introduce el nombre de usuario" >
+                            <div class="formulario__grupo" id="grupo__usuario">
+                                <label for="usuario" class="formulario__label">Nombre de usuario:</label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="Introduce el nombre de usuario">
+                                </div>
+                                <p class="formulario__input-error">El usuario debe empezar por @.</p>
                             </div>
-                            <div class="form-group">
-                                <label for="ingred">Ingredientes: </label>
-                                <textarea class="form-control" id="ingred" rows="3" name="ingredientes"
-                                    placeholder="Indique los ingredientes necesarios"></textarea>
+                            <div class="formulario__grupo" id="grupo__ingredientes">
+                                <label for="ingredientes" class="formulario__label">Ingredientes: </label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="ingredientes" id="ingredientes" placeholder="Indique los ingredientes necesarios">
+                                </div>
+                                <p class="formulario__input-error">Campo obligatorio.</p>
                             </div>
-
-                            <div class="form-group">
-                                <label for="urlR">Foto del plato: </label>
-                                <input  class="form-control" id="urlR" name="imagenR"
-                                    placeholder="Introduce el link a la foto de tu plato" >
+                            <div class="formulario__grupo" id="grupo__imagenR">
+                                <label for="imagenR" class="formulario__label">Foto del plato: </label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="imagenR" id="imagenR" placeholder="Introduce el link a la foto de tu receta">
+                                </div>
+                                <p class="formulario__input-error">Debe introducir un link válido.</p>
                             </div>
-                            
-                            <div class="form-group">
-                                <label for="pers">Numero de personas: </label>
-                                <input  class="form-control" id="pers" min="0" name="personas"
-                                    placeholder="Para x numero de personas" >
+                            <div class="formulario__grupo" id="grupo__personas">
+                                <label for="personas" class="formulario__label">Número de personas: </label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="personas" id="personas" placeholder="Para x número de personas">
+                                </div>
+                                <p class="formulario__input-error">Debe introducir valor numérico.</p>
                             </div>
-                            <div class="form-group">
-                                <label for="tiempo">Duracion: </label>
-                                <input  class="form-control" id="tiempo" min="0" name="duracion"
-                                    placeholder="Indique el tiempo (en horas) aproximado de elaboracion" >
+                            <div class="formulario__grupo" id="grupo__duracion">
+                                <label for="duracion" class="formulario__label">Duración: </label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="duracion" id="duracion" placeholder="Indique el tiempo (en horas) aproximado de elaboracion">
+                                </div>
+                                <p class="formulario__input-error">Debe introducir valor numérico.</p>
                             </div>
-                            <div class="form-group">
-                                <label for="instrucciones">Instrucciones: </label>
-                                <textarea class="form-control" id="instrucciones" rows="9" name="pasos"
-                                    placeholder="Indique los pasos a realizar"></textarea>
+                            <div class="formulario__grupo" id="grupo__pasos">
+                                <label for="pasos" class="formulario__label">Instrucciones: </label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="pasos" id="pasos" placeholder="Indique los pasos a realizar">
+                                </div>
+                                <p class="formulario__input-error">Campo obligatorio.</p>
                             </div>
                             <div class="form-group">
                                 <label for="tipo">Puede contener: </label>
@@ -137,6 +149,10 @@
                              <div class="row">
                              <h1></h1>
                              </div>
+                             <div class="row">
+                                <div class="formulario__mensaje" id="formulario__mensaje">
+                                   <p> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+                               </div>
                              <div class="row">
                              <div class="col-md-8"></div>
                             <div class="col-md-1">
@@ -188,6 +204,137 @@
         </div>
     </div>
     {{/recetas}}
-            
+     <script>
+            const formulario = document.getElementById('formulario');
+            const inputs = document.querySelectorAll('#formulario input');
 
+            const expresiones = {
+                nombre: /^[A-Z].*$/, 
+                usuario: /^@.*$/, 
+                texto: /^.{1,500}$/,
+                numeros: /^\d+$/,
+                imagenR: /^(http:\/\/|https:\/\/).*\.(jpg|jpeg)$/i,
+            }
+
+            const campos = {
+                nombreR: false,
+                usuario: false,
+                imagenR: false,
+                ingredientes: false,
+                pasos:false,
+                duracion:false,
+                personas: false
+            }
+
+            const validarFormulario = (e) => {
+                switch (e.target.name) {
+                case "nombreR":
+                    if(expresiones.nombre.test(e.target.value)){
+                        document.getElementById('grupo__nombreR').classList.remove('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__nombreR').classList.add('formulario__grupo-correcto')
+                        document.querySelector('#grupo__nombreR .formulario__input-error').classList.remove('formulario__input-error-activo')
+                        campos["nombreR"]=true
+                    }else{
+                        document.getElementById('grupo__nombreR').classList.add('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__nombreR').classList.remove('formulario__grupo-correcto')
+                        document.querySelector('#grupo__nombreR .formulario__input-error').classList.add('formulario__input-error-activo')
+                        campos["nombreR"]=false
+                    }
+                break;
+                case "usuario":
+                    if(expresiones.usuario.test(e.target.value)){
+                        document.getElementById('grupo__usuario').classList.remove('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__usuario').classList.add('formulario__grupo-correcto')
+                        document.querySelector('#grupo__usuario .formulario__input-error').classList.remove('formulario__input-error-activo')
+                        campos["usuario"]=true
+                    }else{
+                        document.getElementById('grupo__usuario').classList.add('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__usuario').classList.remove('formulario__grupo-correcto')
+                        document.querySelector('#grupo__usuario .formulario__input-error').classList.add('formulario__input-error-activo')
+                        campos["usuario"]=false
+                    }
+                break;
+                case "ingredientes":
+                    if(expresiones.texto.test(e.target.value)){
+                        document.getElementById('grupo__ingredientes').classList.remove('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__ingredientes').classList.add('formulario__grupo-correcto')
+                        document.querySelector('#grupo__ingredientes .formulario__input-error').classList.remove('formulario__input-error-activo')
+                        campos["ingredientes"]=true
+                    }else{
+                        document.getElementById('grupo__ingredientes').classList.add('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__ingredientes').classList.remove('formulario__grupo-correcto')
+                        document.querySelector('#grupo__ingredientes .formulario__input-error').classList.add('formulario__input-error-activo')
+                        campos["ingredientes"]=false
+                    }
+                break;
+                case "pasos":
+                    if(expresiones.texto.test(e.target.value)){
+                        document.getElementById('grupo__pasos').classList.remove('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__pasos').classList.add('formulario__grupo-correcto')
+                        document.querySelector('#grupo__pasos .formulario__input-error').classList.remove('formulario__input-error-activo')
+                        campos["pasos"]=true
+                    }else{
+                        document.getElementById('grupo__pasos').classList.add('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__pasos').classList.remove('formulario__grupo-correcto')
+                        document.querySelector('#grupo__pasos .formulario__input-error').classList.add('formulario__input-error-activo')
+                        campos["pasos"]=false
+                    }
+                break;
+                case "personas":
+                    if(expresiones.numeros.test(e.target.value)){
+                        document.getElementById('grupo__personas').classList.remove('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__personas').classList.add('formulario__grupo-correcto')
+                        document.querySelector('#grupo__personas .formulario__input-error').classList.remove('formulario__input-error-activo')
+                        campos["personas"]=true
+                    }else{
+                        document.getElementById('grupo__personas').classList.add('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__personas').classList.remove('formulario__grupo-correcto')
+                        document.querySelector('#grupo__personas .formulario__input-error').classList.add('formulario__input-error-activo')
+                        campos["personas"]=false
+                    }
+                break;
+                case "duracion":
+                    if(expresiones.numeros.test(e.target.value)){
+                        document.getElementById('grupo__duracion').classList.remove('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__duracion').classList.add('formulario__grupo-correcto')
+                        document.querySelector('#grupo__duracion .formulario__input-error').classList.remove('formulario__input-error-activo')
+                        campos["duracion"]=true
+                    }else{
+                        document.getElementById('grupo__duracion').classList.add('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__duracion').classList.remove('formulario__grupo-correcto')
+                        document.querySelector('#grupo__duracion .formulario__input-error').classList.add('formulario__input-error-activo')
+                        campos["duracion"]=false
+                    }
+                break;
+                case "imagenR":
+                    if(expresiones.imagenR.test(e.target.value)){
+                        document.getElementById('grupo__imagenR').classList.remove('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__imagenR').classList.add('formulario__grupo-correcto')
+                        document.querySelector('#grupo__imagenR .formulario__input-error').classList.remove('formulario__input-error-activo')
+                        campos["imagenR"]=true
+                    }else{
+                        document.getElementById('grupo__imagenR').classList.add('formulario__grupo-incorrecto')
+                        document.getElementById('grupo__imagenR').classList.remove('formulario__grupo-correcto')
+                        document.querySelector('#grupo__imagenR .formulario__input-error').classList.add('formulario__input-error-activo')
+                        campos["imagenR"]=false
+                    }
+                break;
+                }
+            }
+
+            inputs.forEach((input) => {
+                input.addEventListener('keyup', validarFormulario);
+                input.addEventListener('blur', validarFormulario);
+            });
+
+            formulario.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if(campos.nombreR && campos.usuario && campos.imagenR && campos.ingredientes && campos.pasos && campos.duracion && campos.personas ){
+                    formulario.submit();
+                } else {
+                    document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo')
+                }
+            });
+     </script>       
+</body>
 </html>
