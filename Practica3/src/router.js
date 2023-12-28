@@ -15,19 +15,10 @@ router.get('/', (req, res) => {
 });
 router.post("/new",(req,res)=>{
     let {nombre, imagen, descripcion, origen, tipo, precio, recetas} = req.body;
-    let error = servidor.validar({nombre, imagen, descripcion, origen, tipo, precio, recetas});
-    if (error===0){
-        let id= servidor.addPlato({nombre, imagen, descripcion, origen, tipo, precio, recetas});
-        res.render('elemento', {
-            plato: servidor.getPlato(id),
-        });
-    }
-    else{
-
-        res.render('error',{
-            error: error
-        })
-    }
+    let id= servidor.addPlato({nombre, imagen, descripcion, origen, tipo, precio, recetas});
+    res.render('elemento', {
+        plato: servidor.getPlato(id),
+    });
 });
 router.get('/plato/:id', (req, res) => {
     let plato = servidor.getPlato(req.params.id);
@@ -57,41 +48,24 @@ res.render('formulario_editar', { plato});
 
 router.post('/updated/:id',(req,res)=>{
     let {nombre, imagen, descripcion, origen, tipo, precio, recetas} = req.body;
-    let error = servidor.validar({nombre, imagen, descripcion, origen, tipo, precio, recetas});
-    if(error==0){
-        let plato = servidor.getPlato(req.params.id);
-        servidor.editarCampos({nombre, imagen, descripcion, origen, tipo, precio},plato);
-        
-        res.render('elemento', { 
-            plato,
-            recetas: plato.recetas
-        });}
-        else{
-
-            res.render('error',{
-                error: error
-            })
-        }
+    let plato = servidor.getPlato(req.params.id);
+    servidor.editarCampos({nombre, imagen, descripcion, origen, tipo, precio},plato);
+    res.render('elemento', { 
+        plato,
+        recetas: plato.recetas
+    });
 });
 
 router.post('/updatedreceta/:id',(req,res)=> {
     let {nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano} = req.body;
-    let error = servidor.validarRec(req.body);
-    if(error==0){
-        let plato = servidor.getPlato(req.params.id);
+    let plato = servidor.getPlato(req.params.id);
 
-        servidor.aniadirReceta(req.params.id,{nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano},plato);
+    servidor.aniadirReceta(req.params.id,{nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano},plato);
 
-        res.render('elemento', {
-            plato,
-            recetas:plato.recetas
-        });}
-
-    else {
-        res.render('error',{
-            error:error
-        })
-    }
+    res.render('elemento', {
+        plato,
+        recetas:plato.recetas
+    });
 })
 router.get("/platos",(req,res)=>{
     const from = parseInt(req.query.from);

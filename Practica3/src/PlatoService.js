@@ -319,44 +319,7 @@ export function loadData() {
         ]
     })
 }
-export function validar(plato) {
-    let error = 0;
-    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
 
-    if (typeof plato.nombre === 'undefined' || plato.nombre === '' || typeof plato.descripcion === 'undefined' || typeof plato.descripcion === '' || typeof plato.imagen === 'undefined' ||
-        typeof plato.origen === 'undefined' || typeof plato.tipo === 'undefined' || typeof plato.precio === 'undefined' || typeof plato.imagen === '' || typeof plato.origen === '' || typeof plato.tipo === '' ||
-        typeof plato.precio === '') {
-        error = "Completa todos los campos";
-    }
-    else if (!(Number(plato.precio))) {
-        error = "El precio debe ser un número";
-    }
-    else if (!(urlRegex.test(plato.imagen))) {
-        error = "Debes introducir una URL en el campo de la foto del plato"
-    }
-    return error;
-}
-export function validarRec(receta) {
-    let error = 0;
-    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
-
-    if (typeof receta.nombreR === 'undefined' || receta.nombreR === '' || typeof receta.usuario === 'undefined' || typeof receta.usuario === '' || typeof receta.imagenR === 'undefined' ||
-        typeof receta.personas === 'undefined' || typeof receta.duracion === 'undefined' || typeof receta.pasos === 'undefined' || typeof receta.alergenos === 'undefined' ||
-        typeof receta.vegano === 'undefined' || typeof receta.imagenR === '' || typeof receta.personas === '' || typeof receta.duracion === '' || typeof receta.pasos === '' || typeof receta.alergenos === '' ||
-        typeof receta.vegano === '') {
-        error = "Completa todos los campos";
-    }
-    else if (!(Number(receta.duracion))) {
-        error = "La duracion debe ser un número";
-    }
-    else if (!(Number(receta.personas))) {
-        error = "El numero de personas debe ser una cifra";
-    }
-    else if (!(urlRegex.test(receta.imagenR))) {
-        error = "Debes introducir una URL en el campo de la foto del plato"
-    }
-    return error;
-}
 export function addPlato(plato) {
     let id = nextId++;
     plato.id = id.toString();

@@ -18,64 +18,180 @@
                 <h4>Rellene los siguientes campos:</h4>
                 <div class="container">
                     <div class="row">
-                        <form role="form" action="/updated/{{plato.id}}" method="post">
-                            <div class="form-group">
-                                <label for="name">Nombre del plato: </label>
-                                <input class="form-control" id="name" name="nombre" value="{{plato.nombre}}">
+                        <form role="form" action="/updated/{{plato.id}}" method="post" id="formulario">
+                            <div class="formulario__grupo" id="grupo__nombre">
+                                <label for="nombre" class="formulario__label">Nombre del plato:</label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" value="{{plato.nombre}}" class="formulario__input" name="nombre" id="nombre" placeholder="Introduce el nombre de tu plato">
+                                </div>
+                                <p class="formulario__input-error">El nombre debe empezar por mayúscula.</p>
                             </div>
-                            <div class="form-group">
-                                <label for="Descripcion">Descripción del plato:</label>
-                                <textarea class="form-control" id="Descripcion" rows="6" name="descripcion">{{plato.descripcion}}</textarea>
+                            <div class="formulario__grupo" id="grupo__descripcion">
+                                <label for="descripcion" class="formulario__label">Descripción del plato:</label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" value="{{plato.descripcion}}" class="formulario__input" name="descripcion" id="descripcion" placeholder="Introduce una breve descripción">
+                                </div>
+                                <p class="formulario__input-error">La descripción debe estar comprendida entre 50 y 500 caracteres.</p>
                             </div>
-                            <div class="form-group">
-                                <label for="urlP">Foto del plato: </label>
-                                <input  class="form-control" id="urlP" name="imagen"
-                                value="{{plato.imagen}}" >
+                            <div class="formulario__grupo" id="grupo__imagen">
+                                <label for="imagen" class="formulario__label">Foto del plato:</label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" value="{{plato.imagen}}" class="formulario__input" name="imagen" id="imagen" placeholder="Introduce el link a la foto de tu plato">
+                                </div>
+                                <p class="formulario__input-error">La URL debe tener el formato adecuado.</p>
                             </div>
-                            <div class="form-group">
-                                <label for="origen">Origen del plato: </label>
-                                <input type="text" class="form-control" id="origen" name="origen"
-                                value="{{plato.origen}}">
+                            <div class="formulario__grupo" id="grupo__origen">
+                                <label for="origen" class="formulario__label">Origen del plato: </label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" value="{{plato.origen}}" class="formulario__input" name="origen" id="origen" placeholder="Introduce la nacionalidad de origen">
+                                </div>
+                                <p class="formulario__input-error">El origen solo puede contener caracteres.</p>
                             </div>
                             <div class="form-group">
                                 <label for="tipo">Tipo de plato: </label>
-                                
-                                <select class="form-select" id="tipo" name="tipo" >
+                                <select class="form-select" id="tipo" name="tipo">
                                     <option selected>{{plato.tipo}}</option>
                                     <option>Postre</option>
                                     <option>Bebida</option>
                                     <option>Plato principal</option>
                                     <option>Aperitivo</option>
-                                </select> 
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <label for="coste">Coste del plato: </label>
-                                <input  class="form-control" id="precio" min="0" name="precio"
-                                value="{{plato.precio}}" >
+                            <div class="formulario__grupo" id="grupo__precio">
+                                <label for="precio" class="formulario__label">Coste del plato: </label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" value="{{plato.precio}}" class="formulario__input" name="precio" id="precio" placeholder="Introduce un precio aproximado del plato">
+                                </div>
+                                <p class="formulario__input-error">El coste debe ser numérico.</p>
                             </div>
-
-
-                            </div>
-                             <div class="row">
-                             <h1></h1>
-                             </div>
-                             <div class="row">
-                             <div class="col-md-8"></div>
-                            <div class="col-md-1">
-                                <button type="submit" class="btn btn-default btn-sm"  id="BotonPagG">Guardar</button>
-                             </div>
-                        
-                            <div class="col-md-1"></div>
-                            <div class="col-md-1">
-                                <a href="/" class="btn btn-default btn-sm" id="BotonPagN_C">Cancelar</a>
-                            </div>
-                            <div class="col-md-1"></div>
                             <div class="row">
                                 <h1></h1>
+                            </div>
+                            <div class="row">
+                                <div class="formulario__mensaje" id="formulario__mensaje">
+                                    <p><b>Error:</b> Por favor rellena el formulario correctamente.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8"></div>
+                                <div class="col-md-1">
+                                    <button type="submit" class="btn btn-default btn-sm" id="BotonPagG">Guardar</button>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-1">
+                                    <a href="/" class="btn btn-default btn-sm" id="BotonPagN_C">Cancelar</a>
+                                </div>
+                                <div class="col-md-1"></div>
                             </div>
                         </form>
                     </div>
                 </div>
-</body>
+            </div>
+        </div>
+    </div>
+    <script>
+            const formulario = document.getElementById('formulario');
+            const inputs = document.querySelectorAll('#formulario input');
 
+            const expresiones = {
+            nombre: /^[A-Z].*$/, 
+            origen:/^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+            descripcion: /^.{50,500}$/,
+            precio: /^\d+$/,
+            imagen: /^(http:\/\/|https:\/\/).*\.(jpg|jpeg)$/i,
+            }
+
+            const campos = {
+            nombre: false,
+            descripcion: false,
+            imagen: false,
+            origen: false,
+            precio: false
+            }
+
+            const validarFormulario = (e) => {
+            switch (e.target.name) {
+            case "nombre":
+                if(expresiones.nombre.test(e.target.value)){
+                    document.getElementById('grupo__nombre').classList.remove('formulario__grupo-incorrecto')
+                    document.getElementById('grupo__nombre').classList.add('formulario__grupo-correcto')
+                    document.querySelector('#grupo__nombre .formulario__input-error').classList.remove('formulario__input-error-activo')
+                    campos["nombre"]=true
+                }else{
+                    document.getElementById('grupo__nombre').classList.add('formulario__grupo-incorrecto')
+                    document.getElementById('grupo__nombre').classList.remove('formulario__grupo-correcto')
+                    document.querySelector('#grupo__nombre .formulario__input-error').classList.add('formulario__input-error-activo')
+                    campos["nombre"]=false
+                }
+            break;
+            case "descripcion":
+                if(expresiones.descripcion.test(e.target.value)){
+                    document.getElementById('grupo__descripcion').classList.remove('formulario__grupo-incorrecto')
+                    document.getElementById('grupo__descripcion').classList.add('formulario__grupo-correcto')
+                    document.querySelector('#grupo__descripcion .formulario__input-error').classList.remove('formulario__input-error-activo')
+                    campos["descripcion"]=true
+                }else{
+                    document.getElementById('grupo__descripcion').classList.add('formulario__grupo-incorrecto')
+                    document.getElementById('grupo__descripcion').classList.remove('formulario__grupo-correcto')
+                    document.querySelector('#grupo__descripcion .formulario__input-error').classList.add('formulario__input-error-activo')
+                    campos["descripcion"]=false
+                }
+            break;
+            case "origen":
+                if(expresiones.origen.test(e.target.value)){
+                    document.getElementById('grupo__origen').classList.remove('formulario__grupo-incorrecto')
+                    document.getElementById('grupo__origen').classList.add('formulario__grupo-correcto')
+                    document.querySelector('#grupo__origen .formulario__input-error').classList.remove('formulario__input-error-activo')
+                    campos["origen"]=true
+                }else{
+                    document.getElementById('grupo__origen').classList.add('formulario__grupo-incorrecto')
+                    document.getElementById('grupo__origen').classList.remove('formulario__grupo-correcto')
+                    document.querySelector('#grupo__origen .formulario__input-error').classList.add('formulario__input-error-activo')
+                    campos["origen"]=false
+                }
+            break;
+            case "precio":
+                if(expresiones.precio.test(e.target.value)){
+                    document.getElementById('grupo__precio').classList.remove('formulario__grupo-incorrecto')
+                    document.getElementById('grupo__precio').classList.add('formulario__grupo-correcto')
+                    document.querySelector('#grupo__precio .formulario__input-error').classList.remove('formulario__input-error-activo')
+                    campos["precio"]=true
+                }else{
+                    document.getElementById('grupo__precio').classList.add('formulario__grupo-incorrecto')
+                    document.getElementById('grupo__precio').classList.remove('formulario__grupo-correcto')
+                    document.querySelector('#grupo__precio .formulario__input-error').classList.add('formulario__input-error-activo')
+                    campos["precio"]=false
+                }
+            break;
+            case "imagen":
+                if(expresiones.imagen.test(e.target.value)){
+                    document.getElementById('grupo__imagen').classList.remove('formulario__grupo-incorrecto')
+                    document.getElementById('grupo__imagen').classList.add('formulario__grupo-correcto')
+                    document.querySelector('#grupo__imagen .formulario__input-error').classList.remove('formulario__input-error-activo')
+                    campos["imagen"]=true
+                }else{
+                    document.getElementById('grupo__imagen').classList.add('formulario__grupo-incorrecto')
+                    document.getElementById('grupo__imagen').classList.remove('formulario__grupo-correcto')
+                    document.querySelector('#grupo__imagen .formulario__input-error').classList.add('formulario__input-error-activo')
+                    campos["imagen"]=false
+                }
+            break;
+            }
+            }
+
+            inputs.forEach((input) => {
+            input.addEventListener('keyup', validarFormulario);
+            input.addEventListener('blur', validarFormulario);
+            });
+
+            formulario.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if(campos.nombre && campos.descripcion && campos.imagen && campos.origen && campos.precio ){
+            formulario.submit();
+            } else {
+            document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo')
+            }
+            });
+    </script>
+</body>
 </html>

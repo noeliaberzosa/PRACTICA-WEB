@@ -18,27 +18,35 @@
                 <h4>Rellene los siguientes campos:</h4>
                 <div class="container">
                     <div class="row">
-                        <form role="form" action="new" method="post">
-                            <div class="form-group">
-                                <label for="name">Nombre del plato: </label>
-                                <input type="text" class="form-control" id="name" name="nombre"
-                                    placeholder="Introduce el nombre de tu plato" >
+                        <form role="form" action="new" method="post" id="formulario">
+                            <div class="formulario__grupo" id="grupo__nombre">
+                                <label for="nombre" class="formulario__label">Nombre del plato:</label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Introduce el nombre de tu plato">
+                                </div>
+                                <p class="formulario__input-error">El nombre debe empezar por mayúscula.</p>
                             </div>
-                            <div class="form-group">
-                                <label for="Descripcion">Descripción del plato:</label>
-                                <textarea class="form-control" id="Descripcion" rows="3" name="descripcion"
-                                    placeholder="Introduce una breve descripción del plato" ></textarea>
+                            <div class="formulario__grupo" id="grupo__descripcion">
+                                <label for="descripcion" class="formulario__label">Descripción del plato:</label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="descripcion" id="descripcion" placeholder="Introduce una breve descripción">
+                                </div>
+                                <p class="formulario__input-error">La descripción debe estar comprendida entre 50 y 500 caracteres.</p>
                             </div>
-                            <div class="form-group">
-                                <label for="urlP">Foto del plato: </label>
-                                <input  class="form-control" id="urlP" name="imagen"
-                                    placeholder="Introduce el link a la foto de tu plato" >
+                            <div class="formulario__grupo" id="grupo__imagen">
+                                <label for="imagen" class="formulario__label">Foto del plato:</label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="imagen" id="imagen" placeholder="Introduce el link a la foto de tu plato">
+                                </div>
+                                <p class="formulario__input-error">La url debe tener el  formato adecuado.</p>
                             </div>
-                            <div class="form-group">
-                                <label for="origen">Origen del plato: </label>
-                                <input type="text" class="form-control" id="origen" name="origen"
-                                    placeholder="Introduce la nacionalidad de origen">
-                            </div>
+                            <div class="formulario__grupo" id="grupo__origen">
+                                <label for="origen" class="formulario__label">Origen del plato: </label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="origen" id="origen" placeholder="Introduce la nacionalidad de origen">
+                                </div>
+                                <p class="formulario__input-error">El origen solo puede contener caracteres.</p>
+                            </div> 
                             <div class="form-group">
                                 <label for="tipo">Tipo de plato: </label>
                                 <select class="form-select" id="tipo" name="tipo" >
@@ -48,22 +56,31 @@
                                     <option>Aperitivo</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="coste">Coste del plato: </label>
-                                <input  class="form-control" id="precio" min="0" name="precio"
-                                    placeholder="Introduce el coste del plato aproximado" >
-                            </div>
-
-
+                            <div class="formulario__grupo" id="grupo__precio">
+                                <label for="origen" class="formulario__label">Coste del plato: </label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="precio" id="precio" placeholder="Introduce un precio aproximado del plato">
+                                </div>
+                                <p class="formulario__input-error">El coste debe ser numérico.</p>
+                            </div> 
                             </div>
                              <div class="row">
                              <h1></h1>
                              </div>
                              <div class="row">
                              <div class="col-md-8"></div>
+                            <div class="row">
+                             <div class="formulario__mensaje" id="formulario__mensaje">
+                                <p> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+                            </div>
+                            </div>
+                            <div class="row">
+                                <h1></h1>
+                                </div>
                             <div class="col-md-1">
                                 <button type="submit" class="btn btn-default btn-sm"  id="BotonPagG">Guardar</button>
                              </div>
+                             
                         </form>
                         <div class="col-md-1"></div>
                         <div class="col-md-1">
@@ -75,6 +92,7 @@
                         </div>
                     </div>
                 </div>
+    <script src="validacion.js"></script>
 </body>
 
 </html>
