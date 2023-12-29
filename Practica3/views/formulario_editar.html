@@ -94,19 +94,19 @@
             const inputs = document.querySelectorAll('#formulario input');
 
             const expresiones = {
-            nombre: /^[A-Z].*$/, 
-            origen:/^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-            descripcion: /^.{50,500}$/,
-            precio: /^\d+$/,
-            imagen: /^(http:\/\/|https:\/\/).*\.(jpg|jpeg)$/i,
+                nombre: /^[A-Z].*$/, 
+                origen:/^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+                descripcion: /^.{50,500}$/,
+                precio: /^\d+$/,
+                imagen: /^(http:\/\/|https:\/\/).*\.(jpg|jpeg)$/i,
             }
 
             const campos = {
-            nombre: false,
-            descripcion: false,
-            imagen: false,
-            origen: false,
-            precio: false
+                nombre: false,
+                descripcion: false,
+                imagen: false,
+                origen: false,
+                precio: false
             }
 
             const validarFormulario = (e) => {
@@ -144,18 +144,23 @@
             }
 
             inputs.forEach((input) => {
-            input.addEventListener('keyup', validarFormulario);
-            input.addEventListener('blur', validarFormulario);
+                input.addEventListener('keyup', validarFormulario);
+                input.addEventListener('blur', validarFormulario);
             });
 
             formulario.addEventListener('submit', (e) => {
-            e.preventDefault();
-            if(campos.nombre && campos.descripcion && campos.imagen && campos.origen && campos.precio ){
-            formulario.submit();
-            } else {
-            document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo')
-            }
+                e.preventDefault();
+                if(campos.nombre && campos.descripcion && campos.imagen && campos.origen && campos.precio ){
+                    formulario.submit();
+                } else {
+                    document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo')
+                }
             });
+
+            function soloNumeros(e){
+                var key = window.Event ? e.which : e.keyCode
+                return (key >= 48 && key <= 57)
+            }
     </script>
 </body>
 </html>

@@ -93,6 +93,12 @@
                     </div>
                 </div>
     <script src="validacion.js"></script>
+    <script> 
+        function soloNumeros(e){
+            var key = window.Event ? e.which : e.keyCode
+            return (key >= 48 && key <= 57)
+        }
+    </script>
 </body>
 
 </html>
