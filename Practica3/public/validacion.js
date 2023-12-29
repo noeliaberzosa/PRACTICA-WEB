@@ -20,71 +20,35 @@ const campos = {
 const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "nombre":
-			if(expresiones.nombre.test(e.target.value)){
-                document.getElementById('grupo__nombre').classList.remove('formulario__grupo-incorrecto')
-                document.getElementById('grupo__nombre').classList.add('formulario__grupo-correcto')
-                document.querySelector('#grupo__nombre .formulario__input-error').classList.remove('formulario__input-error-activo')
-                campos["nombre"]=true
-            }else{
-                document.getElementById('grupo__nombre').classList.add('formulario__grupo-incorrecto')
-                document.getElementById('grupo__nombre').classList.remove('formulario__grupo-correcto')
-                document.querySelector('#grupo__nombre .formulario__input-error').classList.add('formulario__input-error-activo')
-                campos["nombre"]=false
-            }
+            validarCampo(expresiones.nombre, e.target, 'nombre');
 		break;
 		case "descripcion":
-			if(expresiones.descripcion.test(e.target.value)){
-                document.getElementById('grupo__descripcion').classList.remove('formulario__grupo-incorrecto')
-                document.getElementById('grupo__descripcion').classList.add('formulario__grupo-correcto')
-                document.querySelector('#grupo__descripcion .formulario__input-error').classList.remove('formulario__input-error-activo')
-                campos["descripcion"]=true
-            }else{
-                document.getElementById('grupo__descripcion').classList.add('formulario__grupo-incorrecto')
-                document.getElementById('grupo__descripcion').classList.remove('formulario__grupo-correcto')
-                document.querySelector('#grupo__descripcion .formulario__input-error').classList.add('formulario__input-error-activo')
-                campos["descripcion"]=false
-            }
+            validarCampo(expresiones.descripcion, e.target, 'descripcion');
 		break;
 		case "origen":
-			if(expresiones.origen.test(e.target.value)){
-                document.getElementById('grupo__origen').classList.remove('formulario__grupo-incorrecto')
-                document.getElementById('grupo__origen').classList.add('formulario__grupo-correcto')
-                document.querySelector('#grupo__origen .formulario__input-error').classList.remove('formulario__input-error-activo')
-                campos["origen"]=true
-            }else{
-                document.getElementById('grupo__origen').classList.add('formulario__grupo-incorrecto')
-                document.getElementById('grupo__origen').classList.remove('formulario__grupo-correcto')
-                document.querySelector('#grupo__origen .formulario__input-error').classList.add('formulario__input-error-activo')
-                campos["origen"]=false
-            }
+            validarCampo(expresiones.origen, e.target, 'origen');
 		break;
         case "precio":
-			if(expresiones.precio.test(e.target.value)){
-                document.getElementById('grupo__precio').classList.remove('formulario__grupo-incorrecto')
-                document.getElementById('grupo__precio').classList.add('formulario__grupo-correcto')
-                document.querySelector('#grupo__precio .formulario__input-error').classList.remove('formulario__input-error-activo')
-                campos["precio"]=true
-            }else{
-                document.getElementById('grupo__precio').classList.add('formulario__grupo-incorrecto')
-                document.getElementById('grupo__precio').classList.remove('formulario__grupo-correcto')
-                document.querySelector('#grupo__precio .formulario__input-error').classList.add('formulario__input-error-activo')
-                campos["precio"]=false
-            }
+            validarCampo(expresiones.precio, e.target, 'precio');
 		break;
 		case "imagen":
-			if(expresiones.imagen.test(e.target.value)){
-                document.getElementById('grupo__imagen').classList.remove('formulario__grupo-incorrecto')
-                document.getElementById('grupo__imagen').classList.add('formulario__grupo-correcto')
-                document.querySelector('#grupo__imagen .formulario__input-error').classList.remove('formulario__input-error-activo')
-                campos["imagen"]=true
-            }else{
-                document.getElementById('grupo__imagen').classList.add('formulario__grupo-incorrecto')
-                document.getElementById('grupo__imagen').classList.remove('formulario__grupo-correcto')
-                document.querySelector('#grupo__imagen .formulario__input-error').classList.add('formulario__input-error-activo')
-                campos["imagen"]=false
-            }
+            validarCampo(expresiones.imagen, e.target, 'imagen');
 		break;
 	}
+}
+
+const validarCampo = (expresion, input, campo) => {
+    if (expresion.test(input.value)) {
+        document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
+        document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
+        document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo')
+        campos[campo] = true;
+    } else {
+        document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+        document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
+        document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
+        campos[campo] = false;
+    }
 }
 
 inputs.forEach((input) => {
