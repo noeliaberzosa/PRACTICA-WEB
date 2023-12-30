@@ -36,8 +36,8 @@ router.get("/delete/:id",(req,res)=>{
     servidor.deletePlato(req.params.id);
     let platos1
     let platos2
-    platos1 = servidor.getPlatos().platos1;
-    platos2 = servidor.getPlatos().platos2;
+    platos1 = servidor.getPlatos(0,4).platos1;
+    platos2 = servidor.getPlatos(0,4).platos2;
     res.render('principal', {
         platos1: platos1,
         platos2: platos2
