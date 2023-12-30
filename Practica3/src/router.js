@@ -1,5 +1,6 @@
 import express from 'express';
 import * as servidor from './PlatoService.js';
+let existingName = [ 'Croquetas', 'Tacos', 'San Francisco','Ensalada','Pizza','Arepas', 'Rollitos de primavera','Sangría', 'Tiramisú','Paella', 'Batidos','Totitas', 'Tortilla', 'Miguelitos' ];
 
 const router = express.Router();
 
@@ -16,6 +17,7 @@ router.get('/', (req, res) => {
 router.post("/new",(req,res)=>{
     let {nombre, imagen, descripcion, origen, tipo, precio, recetas} = req.body;
     let id= servidor.addPlato({nombre, imagen, descripcion, origen, tipo, precio, recetas});
+    existingName.push(nombre);
     res.render('elemento', {
         plato: servidor.getPlato(id),
     });
@@ -30,6 +32,7 @@ res.render('elemento', {
 
 router.get("/delete/:id",(req,res)=>{
     let plato = servidor.getPlato(req.params.id);
+    existingName=existingName.filter(nombre => nombre !== plato.nombre);
     servidor.deletePlato(req.params.id);
     let platos1
     let platos2
@@ -43,12 +46,14 @@ router.get("/delete/:id",(req,res)=>{
 
 router.get('/editar/:id', (req, res) => {
     let plato = servidor.getPlato(req.params.id);
+    existingName=existingName.filter(nombre => nombre !== plato.nombre);
 res.render('formulario_editar', { plato});
 });
 
 router.post('/updated/:id',(req,res)=>{
     let {nombre, imagen, descripcion, origen, tipo, precio, recetas} = req.body;
     let plato = servidor.getPlato(req.params.id);
+    existingName.push(nombre);
     servidor.editarCampos({nombre, imagen, descripcion, origen, tipo, precio},plato);
     res.render('elemento', { 
         plato,
@@ -86,6 +91,19 @@ router.get("/search",(req,res)=>{
         platos1: platos1,
         platos2: platos2
     });
+});
+
+router.get('/availableName', (req, res) => {
+
+    let name = req.query.nombre;
+
+    let availableName = existingName.indexOf(name) === -1;
+
+    let response = {
+        available: availableName
+    }
+
+    res.json(response);
 });
 
 export default router;
