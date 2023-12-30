@@ -37,6 +37,7 @@ async function checkNameAvailability() {
     const messageDiv = document.getElementById('message');
     if (message=='<p>Disponible</p>') {
         formulario.setAttribute('data-valid', 'si');
+        messageDiv.style.color='#00008B';
     } else {
         formulario.setAttribute('data-valid', 'no');
         messageDiv.style.color='#FF0000';

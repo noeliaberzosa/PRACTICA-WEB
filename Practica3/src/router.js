@@ -46,13 +46,13 @@ router.get("/delete/:id",(req,res)=>{
 
 router.get('/editar/:id', (req, res) => {
     let plato = servidor.getPlato(req.params.id);
-    existingName=existingName.filter(nombre => nombre !== plato.nombre);
 res.render('formulario_editar', { plato});
 });
 
 router.post('/updated/:id',(req,res)=>{
     let {nombre, imagen, descripcion, origen, tipo, precio, recetas} = req.body;
     let plato = servidor.getPlato(req.params.id);
+    existingName=existingName.filter(nombre => nombre !== plato.nombre);
     existingName.push(nombre);
     servidor.editarCampos({nombre, imagen, descripcion, origen, tipo, precio},plato);
     res.render('elemento', { 
