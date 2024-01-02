@@ -8,7 +8,6 @@ const expresiones = {
 	precio: /^\d+$/,
     imagen: /^(http:\/\/|https:\/\/).*\.(jpg|jpeg)$/i,
 }
-
 const campos = {
 	nombre: false,
 	descripcion: false,
@@ -16,7 +15,6 @@ const campos = {
 	origen: false,
 	precio: false
 }
-
 const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "nombre":
@@ -57,11 +55,12 @@ inputs.forEach((input) => {
 	input.addEventListener('blur', validarFormulario);
 });
 
-formulario.addEventListener('submit', (e) => {
+function myOnSubmitFunction(e){
 	e.preventDefault();
+	validarFormulario(e);
 	if(campos.nombre && campos.descripcion && campos.imagen && campos.origen && campos.precio && (formulario.getAttribute('data-valid') === 'si') ){
         formulario.submit();
 	} else {
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo')
 	}
-});
+};

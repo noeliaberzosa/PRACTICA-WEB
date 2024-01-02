@@ -118,7 +118,7 @@
                             <div class="formulario__grupo" id="grupo__duracion">
                                 <label for="duracion" class="formulario__label">Duración: </label>
                                 <div class="formulario__grupo-input">
-                                    <input onKeyPress="return soloNumeros(event)" type="text" class="formulario__input" name="duracion" id="duracion" placeholder="Indique el tiempo (en horas) aproximado de elaboracion">
+                                    <input onKeyPress="soloNumeros(event)" type="text" class="formulario__input" name="duracion" id="duracion" placeholder="Indique el tiempo (en horas) aproximado de elaboracion">
                                 </div>
                                 <p class="formulario__input-error">Debe introducir valor numérico.</p>
                             </div>
@@ -157,7 +157,7 @@
                              <div class="row">
                              <div class="col-md-8"></div>
                             <div class="col-md-1">
-                                <button type="submit" class="btn btn-default btn-sm"  id="BotonPagG">Guardar</button>
+                                <button type="submit" onclick="myOnSubmitFunction(event)" class="btn btn-default btn-sm"  id="BotonPagG">Guardar</button>
                              </div>
                         </form>
                         <div class="col-md-1"></div>
@@ -206,85 +206,11 @@
     </div>
     {{/recetas}}
      <script>
-            const formulario = document.getElementById('formulario');
-            const inputs = document.querySelectorAll('#formulario input');
-
-            const expresiones = {
-                nombre: /^[A-Z].*$/, 
-                usuario: /^@.*$/, 
-                texto: /^.{1,500}$/,
-                numeros: /^\d+$/,
-                imagenR: /^(http:\/\/|https:\/\/).*\.(jpg|jpeg)$/i,
-            }
-
-            const campos = {
-                nombreR: false,
-                usuario: false,
-                imagenR: false,
-                ingredientes: false,
-                pasos:false,
-                duracion:false,
-                personas: false
-            }
-
-            const validarFormulario = (e) => {
-                switch (e.target.name) {
-                case "nombreR":
-                    validarCampo(expresiones.nombre, e.target, 'nombreR');
-                break;
-                case "usuario":
-                    validarCampo(expresiones.usuario, e.target, 'usuario');
-                break;
-                case "ingredientes":
-                    validarCampo(expresiones.texto, e.target, 'ingredientes');
-                break;
-                case "pasos":
-                    validarCampo(expresiones.texto, e.target, 'pasos');
-                break;
-                case "personas":
-                    validarCampo(expresiones.numeros, e.target, 'personas');
-                break;
-                case "duracion":
-                    validarCampo(expresiones.numeros, e.target, 'duracion');
-                break;
-                case "imagenR":
-                    validarCampo(expresiones.imagenR, e.target, 'imagenR');
-                break;
-                }
-            }
-
-            const validarCampo = (expresion, input, campo) => {
-                if (expresion.test(input.value)) {
-                    document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
-                    document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
-                    document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo')
-                    campos[campo] = true;
-                } else {
-                    document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
-                    document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
-                    document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
-                    campos[campo] = false;
-                }
-            }
-
-
-            inputs.forEach((input) => {
-                input.addEventListener('keyup', validarFormulario);
-                input.addEventListener('blur', validarFormulario);
-            });
-
-            formulario.addEventListener('submit', (e) => {
-                e.preventDefault();
-                if(campos.nombreR && campos.usuario && campos.imagenR && campos.ingredientes && campos.pasos && campos.duracion && campos.personas ){
-                    formulario.submit();
-                } else {
-                    document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo')
-                }
-            });
-            function soloNumeros(e){
-                var key = window.Event ? e.which : e.keyCode
-                return (key >= 48 && key <= 57)
-            }
-     </script>       
+        function soloNumeros(e){
+            var key = window.Event ? e.which : e.keyCode
+            return (key >= 48 && key <= 57)
+        }
+     </script>  
+     <script type="module" src="/validarRec.js"></script>     
 </body>
 </html>

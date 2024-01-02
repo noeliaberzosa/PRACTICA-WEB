@@ -1,40 +1,40 @@
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
-
+formulario.setAttribute('data-valid', 'si');
 const expresiones = {
-	nombre: /^[A-Z].*$/, 
+    nombre: /^[A-Z].*$/, 
     origen:/^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	descripcion: /^.{50,500}$/,
-	precio: /^\d+$/,
+    descripcion: /^.{50,500}$/,
+    precio: /^\d+$/,
     imagen: /^(http:\/\/|https:\/\/).*\.(jpg|jpeg)$/i,
 }
 
 const campos = {
-	nombre: false,
-	descripcion: false,
-	imagen: false,
-	origen: false,
-	precio: false
+    nombre: true,
+    descripcion: true,
+    imagen: true,
+    origen: true,
+    precio: true
 }
 
 const validarFormulario = (e) => {
-	switch (e.target.name) {
-		case "nombre":
+    switch (e.target.name) {
+        case "nombre":
             validarCampo(expresiones.nombre, e.target, 'nombre');
-		break;
-		case "descripcion":
+        break;
+        case "descripcion":
             validarCampo(expresiones.descripcion, e.target, 'descripcion');
-		break;
-		case "origen":
+        break;
+        case "origen":
             validarCampo(expresiones.origen, e.target, 'origen');
-		break;
+        break;
         case "precio":
             validarCampo(expresiones.precio, e.target, 'precio');
-		break;
-		case "imagen":
+        break;
+        case "imagen":
             validarCampo(expresiones.imagen, e.target, 'imagen');
-		break;
-	}
+        break;
+    }
 }
 
 const validarCampo = (expresion, input, campo) => {
@@ -49,19 +49,19 @@ const validarCampo = (expresion, input, campo) => {
         document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
         campos[campo] = false;
     }
-	document.getElementById('nombre').oninput
+    document.getElementById('nombre').oninput
 }
 
 inputs.forEach((input) => {
-	input.addEventListener('keyup', validarFormulario);
-	input.addEventListener('blur', validarFormulario);
+    input.addEventListener('keyup', validarFormulario);
+    input.addEventListener('blur', validarFormulario);
 });
 
 formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
-	if(campos.nombre && campos.descripcion && campos.imagen && campos.origen && campos.precio && (formulario.getAttribute('data-valid') === 'si') ){
+    e.preventDefault();
+    if(campos.nombre && campos.descripcion && campos.imagen && campos.origen && campos.precio && (formulario.getAttribute('data-valid') === 'si') ){
         formulario.submit();
-	} else {
-		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo')
-	}
+    } else {
+        document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo')
+    }
 });
