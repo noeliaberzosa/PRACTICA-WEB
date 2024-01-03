@@ -111,14 +111,14 @@
                             <div class="formulario__grupo" id="grupo__personas">
                                 <label for="personas" class="formulario__label">Número de personas: </label>
                                 <div class="formulario__grupo-input">
-                                    <input onKeyPress="return soloNumeros(event)" type="text" class="formulario__input" name="personas" id="personas" placeholder="Para x número de personas">
+                                    <input onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" type="text" class="formulario__input" name="personas" id="personas" placeholder="Para x número de personas">
                                 </div>
                                 <p class="formulario__input-error">Debe introducir valor numérico.</p>
                             </div>
                             <div class="formulario__grupo" id="grupo__duracion">
                                 <label for="duracion" class="formulario__label">Duración: </label>
                                 <div class="formulario__grupo-input">
-                                    <input onKeyPress="soloNumeros(event)" type="text" class="formulario__input" name="duracion" id="duracion" placeholder="Indique el tiempo (en horas) aproximado de elaboracion">
+                                    <input onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" type="text" class="formulario__input" name="duracion" id="duracion" placeholder="Indique el tiempo (en horas) aproximado de elaboracion">
                                 </div>
                                 <p class="formulario__input-error">Debe introducir valor numérico.</p>
                             </div>
@@ -205,12 +205,6 @@
         </div>
     </div>
     {{/recetas}}
-     <script>
-        function soloNumeros(e){
-            var key = window.Event ? e.which : e.keyCode
-            return (key >= 48 && key <= 57)
-        }
-     </script>  
      <script type="module" src="/validarRec.js"></script>     
 </body>
 </html>
