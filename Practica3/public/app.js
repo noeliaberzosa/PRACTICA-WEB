@@ -20,14 +20,19 @@ async function search(){
 }
 async function filterByOrigen(){
     let fOrigen = document.getElementById("fOrigen").value;
-    const response = await fetch(`/filter?origen=${fOrigen}`);
+    const response = await fetch(`/filterO?origen=${fOrigen}`);
     const newPlatos = await response.text();
     const platos = document.getElementById("platos");
     platos.innerHTML = newPlatos;
     next = -1;
 }
-async function filterTipo(){
-
+async function filterByTipo(){
+    let fTipo = document.getElementById("opciones").value;
+    const response = await fetch(`/filterT?tipo=${fTipo}`);
+    const newPlatos = await response.text();
+    const platos = document.getElementById("platos");
+    platos.innerHTML = newPlatos;
+    next = -1;
 }
 async function filterPrecio(){
 

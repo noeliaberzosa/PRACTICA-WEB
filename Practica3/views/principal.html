@@ -31,7 +31,7 @@
                         <h1></h1>
                     </div>
                     <div class="row text-center ">
-                        <div class="col-md-7 ">
+                        <div class="col-md-12 ">
                             <form role="form" id="Buscador">
                                 <input type="text" class="form-control" id="buscado" name="buscado"
                                     placeholder="Buscar">
@@ -41,6 +41,14 @@
                             </form>
                         </div>
                         <div class="col-md-1"></div>
+                    </div>
+                    <div class="row">
+                        <h1></h1>
+                    </div>
+                    <div class="row">
+                        <h4>Filtrar por...</h4>
+                    </div>
+                    <div class="row">
                         <div class="col-md-4">
                             <form role="form" id="Buscador">
                                 <input type="text" class="form-control" id="fOrigen" name="fOrigen"
@@ -50,6 +58,20 @@
                                 </button>
                             </form>
                         </div>
+                        <div class="col-md-4">
+                            <div class="form-group d-flex align-items-center">
+                              <select id="opciones" class="form-select d-inline-block">
+                                <option value="" selected disabled>Filtra por tipo de comida</option>
+                                <option value="Postre">Postre</option>
+                                <option value="Bebida">Bebida</option>
+                                <option value="Plato Principal">Plato principal</option>
+                                <option value="Aperitivo">Aperitivo</option>
+                              </select>
+                              <button onclick="filterByTipo()" type="button" class="btn" id="BotonFil">
+                                <img src="../buscar.png" id="imgBus">
+                              </button> 
+                            </div>                        
+                          </div>
                     </div>
                     <div class="row">
                         <h1></h1>

@@ -93,9 +93,9 @@ router.get("/search",(req,res)=>{
     });
 });
 
-router.get("/filter",(req,res)=>{
+router.get("/filterO",(req,res)=>{
     const origen = req.query.origen;
-    let platosBus = servidor.getFiltrados(origen);
+    let platosBus = servidor.getFiltradosO(origen);
     let platos1 = servidor.divPlatos(platosBus).platos1;
     let platos2 = servidor.divPlatos(platosBus).platos2;
     res.render('platos', {
@@ -103,6 +103,16 @@ router.get("/filter",(req,res)=>{
         platos2: platos2
     });
 });
+router.get("/filterT",(req,res)=>{
+    const tipo = req.query.tipo;
+    let platosBus = servidor.getFiltradosT(tipo);
+    let platos1 = servidor.divPlatos(platosBus).platos1;
+    let platos2 = servidor.divPlatos(platosBus).platos2;
+    res.render('platos', {
+        platos1: platos1,
+        platos2: platos2
+    });
+})
 
 router.get('/availableName', (req, res) => {
 
