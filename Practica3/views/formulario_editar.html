@@ -63,7 +63,7 @@
                             <div class="formulario__grupo" id="grupo__precio">
                                 <label for="precio" class="formulario__label">Coste del plato: </label>
                                 <div class="formulario__grupo-input">
-                                    <input onKeyPress="return soloNumeros(event)" type="text" value="{{plato.precio}}" class="formulario__input" name="precio" id="precio" placeholder="Introduce un precio aproximado del plato">
+                                    <input onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" type="text" value="{{plato.precio}}" class="formulario__input" name="precio" id="precio" placeholder="Introduce un precio aproximado del plato">
                                 </div>
                                 <p class="formulario__input-error">El coste debe ser numérico.</p>
                             </div>
@@ -92,13 +92,6 @@
             </div>
         </div>
     </div>
-    
-    <script>
-        function soloNumeros(e){
-            var key = window.Event ? e.which : e.keyCode
-            return (key >= 48 && key <= 57)
-        }
-    </script>
     <script type="module" src="/valEditar.js"></script>
 </body>
 </html>
