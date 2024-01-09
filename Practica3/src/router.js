@@ -93,6 +93,17 @@ router.get("/search",(req,res)=>{
     });
 });
 
+router.get("/filter",(req,res)=>{
+    const origen = req.query.origen;
+    let platosBus = servidor.getFiltrados(origen);
+    let platos1 = servidor.divPlatos(platosBus).platos1;
+    let platos2 = servidor.divPlatos(platosBus).platos2;
+    res.render('platos', {
+        platos1: platos1,
+        platos2: platos2
+    });
+});
+
 router.get('/availableName', (req, res) => {
 
     let name = req.query.nombre;

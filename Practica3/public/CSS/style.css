@@ -138,6 +138,15 @@ form{
     border-color: rgb(16, 95, 206);
     background-color: rgb(82, 120, 197);
 }
+#BotonFil{
+    font-family:Candara, Tahoma, Geneva, Verdana, sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:aliceblue;
+    font-weight: bolder;
+    margin: auto;
+    border-width: 3px;
+    border-color: rgb(136, 206, 16);
+    background-color: rgb(136, 206, 16);
+}
 #imgBus{
     display: block;
     margin-left: auto;

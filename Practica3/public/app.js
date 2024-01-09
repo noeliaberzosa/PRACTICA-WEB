@@ -18,7 +18,20 @@ async function search(){
     platos.innerHTML = newPlatos;
     next = -1;
 }
+async function filterByOrigen(){
+    let fOrigen = document.getElementById("fOrigen").value;
+    const response = await fetch(`/filter?origen=${fOrigen}`);
+    const newPlatos = await response.text();
+    const platos = document.getElementById("platos");
+    platos.innerHTML = newPlatos;
+    next = -1;
+}
+async function filterTipo(){
 
+}
+async function filterPrecio(){
+
+}
 async function checkNameAvailability() {
 
     let nombreInput = document.getElementById('nombre');

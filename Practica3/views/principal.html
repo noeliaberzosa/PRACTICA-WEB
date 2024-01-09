@@ -20,21 +20,32 @@
                     <div class="row text-center aling-items-end ">
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
-                        </div>
-                        <div class="col-md-4">
                             <a href="/new.html">
                                 <button type="button" class="btn btn-default btn-sm" id="BotonPagP">+ Añade tu
                                     plato</button>
                             </a>
                         </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                    <div class="row">
+                        <h1></h1>
                     </div>
                     <div class="row text-center ">
-                        <div class="col-md-4"></div>
-                        <div class="col-md-8 ">
+                        <div class="col-md-7 ">
                             <form role="form" id="Buscador">
                                 <input type="text" class="form-control" id="buscado" name="buscado"
                                     placeholder="Buscar">
                                 <button onclick="search()" type="button" class="btn" id="BotonBus">
+                                    <img src="../buscar.png" id="imgBus">
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <form role="form" id="Buscador">
+                                <input type="text" class="form-control" id="fOrigen" name="fOrigen"
+                                    placeholder="Filtra por origen del plato...">
+                                <button onclick="filterByOrigen()" type="button" class="btn" id="BotonFil">
                                     <img src="../buscar.png" id="imgBus">
                                 </button>
                             </form>

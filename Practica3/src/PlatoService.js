@@ -430,4 +430,16 @@ export function getBuscados(buscado) {
     }
     return platosBuscados;
 }
+
+export function getFiltrados(fOrigen) {
+    let platosFiltrados = new Array();
+    for (let key of platos.keys()) {
+        if ((platos.get(key).origen).includes(fOrigen)) {
+            let plato = platos.get(key);
+            plato.id = key;
+            platosFiltrados.push(plato);
+        }
+    }
+    return platosFiltrados;
+}
 loadData();
