@@ -6,7 +6,7 @@ export function loadData() {
     addPlato({
         nombre: "Croquetas", imagen: "https://th.bing.com/th/id/OIP.-0Bx3xmvZf-QNh-17tMW4AHaFz?pid=ImgDet&rs=1", descripcion: "Como muchos de vosotros ya sabréis, aunque pensemos muchas veces que la croqueta es un producto que viene de España, en realidad su origen es francés. Podríamos contar una breve historia de las croquetas, pero hoy vamos a extendernos un poco más. Las croquetas son muy populares en España, los Países Bajos y en Sicilia. La croqueta no llegó a península hasta finales del siglo XIX. Este aperitivo surgió en Francia, donde un aristócrata llamado Louis de Bechamel, que era el encargado de la cocina del rey Luis XIV. El padre de las croquetas trabajaba como recaudador de impuestos y era superintendente de la casa del duque de Orleans. Se dice qué él o alguno de sus ayudantes," +
             "creó la besamel.Esta salsa, en realidad fue resultado del perfeccionamiento de una salsa más antigua a base de crema, por François Pierre de la Varenne cocinero del marqués de Uxelles, a la que se la dedicó, como lo hacían a menudo los cocineros para la nobleza del tiempo.",
-        origen: "Francia", tipo: "Aperitivo", precio: "3 ",
+        origen: "Francia", tipo: "Aperitivo", precio: "3",
         recetas: [
             {
                 nombreR: "Croquetas de Pollo",
@@ -446,6 +446,17 @@ export function getFiltradosT(fTipo) {
     let platosFiltrados = new Array();
     for (let key of platos.keys()) {
         if ((platos.get(key).tipo).includes(fTipo)) {
+            let plato = platos.get(key);
+            plato.id = key;
+            platosFiltrados.push(plato);
+        }
+    }
+    return platosFiltrados;
+}
+export function getFiltradosP(fPrecio) {
+    let platosFiltrados = new Array();
+    for (let key of platos.keys()) {
+        if ((platos.get(key).precio)<=(fPrecio)) {
             let plato = platos.get(key);
             plato.id = key;
             platosFiltrados.push(plato);

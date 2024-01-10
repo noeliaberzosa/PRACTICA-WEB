@@ -113,6 +113,16 @@ router.get("/filterT",(req,res)=>{
         platos2: platos2
     });
 })
+router.get("/filterP",(req,res)=>{
+    const precio = req.query.precio;
+    let platosBus = servidor.getFiltradosP(precio);
+    let platos1 = servidor.divPlatos(platosBus).platos1;
+    let platos2 = servidor.divPlatos(platosBus).platos2;
+    res.render('platos', {
+        platos1: platos1,
+        platos2: platos2
+    });
+})
 
 router.get('/availableName', (req, res) => {
 

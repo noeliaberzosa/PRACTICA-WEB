@@ -60,7 +60,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group d-flex align-items-center">
-                              <select id="opciones" class="form-select d-inline-block">
+                              <select id="tipo" class="form-select d-inline-block">
                                 <option value="" selected disabled>Filtra por tipo de comida</option>
                                 <option value="Postre">Postre</option>
                                 <option value="Bebida">Bebida</option>
@@ -70,8 +70,18 @@
                               <button onclick="filterByTipo()" type="button" class="btn" id="BotonFil">
                                 <img src="../buscar.png" id="imgBus">
                               </button> 
-                            </div>                        
-                          </div>
+                            </div> 
+                        </div>                       
+                        <div class="col-md-4">
+                            <div class="input-group">
+                              <input type="number" class="form-control" id="precio" min="1" placeholder="Precio máximo (euros): ">
+                              <div class="input-group-append">
+                                <button onclick="filterByPrecio()" type="button" class="btn" id="BotonFil">
+                                  <img src="../buscar.png" id="imgBus">
+                                </button> 
+                              </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <h1></h1>

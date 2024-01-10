@@ -27,13 +27,22 @@ async function filterByOrigen(){
     next = -1;
 }
 async function filterByTipo(){
-    let fTipo = document.getElementById("opciones").value;
+    let fTipo = document.getElementById("tipo").value;
     const response = await fetch(`/filterT?tipo=${fTipo}`);
     const newPlatos = await response.text();
     const platos = document.getElementById("platos");
     platos.innerHTML = newPlatos;
     next = -1;
 }
+async function filterByPrecio(){
+    let fPrecio = document.getElementById("precio").value;
+    const response = await fetch(`/filterP?precio=${fPrecio}`);
+    const newPlatos = await response.text();
+    const platos = document.getElementById("platos");
+    platos.innerHTML = newPlatos;
+    next = -1;
+}
+
 async function filterPrecio(){
 
 }
