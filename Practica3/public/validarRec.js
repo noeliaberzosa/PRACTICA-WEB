@@ -74,3 +74,10 @@ function myOnSubmitFunction(e){
         document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo')
     }
 };
+
+async function cargarReceta(){
+    const response = await fetch(`/plato/:id`);
+    const newRecipe = await response.text();
+    const recetas = document.getElementById("recetas");
+    recetas.innerHTML += newRecipe;
+}

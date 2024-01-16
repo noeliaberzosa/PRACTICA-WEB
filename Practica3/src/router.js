@@ -18,6 +18,9 @@ router.post("/new",(req,res)=>{
 });
 router.get('/plato/:id', (req, res) => {
     let plato = servidor.getPlato(req.params.id);
+    if (Object.keys(req.query).length !== 0){
+        servidor.aniadirReceta(req.params.id,req.query,plato)
+    }
 res.render('elemento', { 
     plato,
     recetas: plato.recetas
