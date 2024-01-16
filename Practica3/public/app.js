@@ -43,8 +43,22 @@ async function filterByPrecio(){
     next = -1;
 }
 
-async function filterPrecio(){
+async function cargarReceta(platoId){
 
+    let nombreR = document.getElementById("nombreR").value;
+    let usuario = document.getElementById("usuario").value;
+    let ingredientes = document.getElementById("ingredientes").value;
+    let imagenR = document.getElementById("imagenR").value;
+    let personas = document.getElementById("personas").value;
+    let duracion = document.getElementById("duracion").value;
+    let pasos = document.getElementById("pasos").value;
+    let alergenos = document.getElementById("alergenos").value;
+    let vegano = document.getElementById("vegano").value;
+    const url = `/plato/${platoId}?nombreR=${nombreR}&usuario=${usuario}&ingredientes=${ingredientes}&imagenR=${imagenR}&personas=${personas}&duracion=${duracion}&pasos=${pasos}&alergenos=${alergenos}&vegano=${vegano}`
+    const response = await fetch(url);
+    const newRecipes = await response.text();
+    const recetas = document.getElementById("recetas");
+    recetas.innerHTML = newRecipes;
 }
 async function checkNameAvailability() {
 

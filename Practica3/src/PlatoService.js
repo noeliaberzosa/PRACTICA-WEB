@@ -371,6 +371,7 @@ export function getPlatos(from, to) {
         return values;
     }
 }
+
 export function setNombre(plato, nombre) {
     plato.nombre = nombre
 }
