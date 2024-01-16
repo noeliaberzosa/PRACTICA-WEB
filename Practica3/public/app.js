@@ -1,7 +1,7 @@
-let next = 3;
+let next = 0;
 async function loadMore(){
     if ( next != -1){
-        let from = (next +1);
+        let from = (next);
         let to = from + 4;
         const response = await fetch(`/platos?from=${from}&to=${to}`);
         const newPlatos = await response.text();
@@ -71,3 +71,4 @@ async function checkNameAvailability() {
     }
     messageDiv.innerHTML = message;
 }
+loadMore();

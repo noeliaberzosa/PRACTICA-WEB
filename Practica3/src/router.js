@@ -5,14 +5,8 @@ let existingName = [ 'Croquetas', 'Tacos', 'San Francisco','Ensalada','Pizza','A
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    let platos1
-    let platos2
-    platos1 = servidor.getPlatos(0,4).platos1;
-    platos2 = servidor.getPlatos(0,4).platos2;
-    res.render('principal', {
-        platos1: platos1,
-        platos2: platos2
-    });
+
+    res.render('principal');
 });
 router.post("/new",(req,res)=>{
     let {nombre, imagen, descripcion, origen, tipo, precio, recetas} = req.body;
