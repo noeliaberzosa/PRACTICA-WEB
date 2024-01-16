@@ -18,36 +18,12 @@ router.post("/new",(req,res)=>{
 });
 router.get('/plato/:id', (req, res) => {
     let plato = servidor.getPlato(req.params.id);
-if (req.query.nombreR){
-    const nombreR = req.query.nombreR;
-    const usuario = req.query.usuario;
-    const ingredientes = req.query.ingredientes;
-    const imagenR = req.query.imagenR;
-    const personas = req.query.personas;
-    const duracion = req.query.duracion;
-    const pasos = req.query.pasos;
-    const alergenos = req.query.alergenos;
-    const vegano = req.query.vegano;
-    servidor.aniadirReceta(req.params.id,{nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano},plato)
-}
 res.render('elemento', { 
     plato,
     recetas: plato.recetas
     });
 });
-/*
-router.post('/updatedreceta/:id',(req,res)=> {
-    let {nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano} = req.body;
-    let plato = servidor.getPlato(req.params.id);
 
-    servidor.aniadirReceta(req.params.id,{nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano},plato);
-
-    res.render('elemento', {
-        plato,
-        recetas:plato.recetas
-    });
-})
-*/
 router.get("/delete/:id",(req,res)=>{
     let plato = servidor.getPlato(req.params.id);
     existingName=existingName.filter(nombre => nombre !== plato.nombre);
@@ -79,7 +55,17 @@ router.post('/updated/:id',(req,res)=>{
     });
 });
 
+router.post('/updatedreceta/:id',(req,res)=> {
+    let {nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano} = req.body;
+    let plato = servidor.getPlato(req.params.id);
 
+    servidor.aniadirReceta(req.params.id,{nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano},plato);
+
+    res.render('elemento', {
+        plato,
+        recetas:plato.recetas
+    });
+})
 router.get("/platos",(req,res)=>{
     const from = parseInt(req.query.from);
     const to = parseInt(req.query.to);
