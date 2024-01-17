@@ -409,7 +409,7 @@ export function editarCampos(platoN, plato) {
         setPrecio(plato, platoN.precio);
     }
 }
-export function aniadirReceta(id, nuevaReceta, plato) {
+export function aniadirReceta(id, nuevaReceta) {
     if (platos.has(id)) {
         const platoN = platos.get(id);
         if (platoN.recetas == undefined) {

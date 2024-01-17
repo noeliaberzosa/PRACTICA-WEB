@@ -18,12 +18,8 @@ router.post("/new",(req,res)=>{
 });
 router.get('/plato/:id', (req, res) => {
     let plato = servidor.getPlato(req.params.id);
-    if (Object.keys(req.query).length !== 0){
-        servidor.aniadirReceta(req.params.id,req.query,plato)
-    }
 res.render('elemento', { 
-    plato,
-    recetas: plato.recetas
+    plato
     });
 });
 
@@ -58,17 +54,34 @@ router.post('/updated/:id',(req,res)=>{
     });
 });
 
-router.post('/updatedreceta/:id',(req,res)=> {
-    let {nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano} = req.body;
-    let plato = servidor.getPlato(req.params.id);
-
-    servidor.aniadirReceta(req.params.id,{nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano},plato);
-
-    res.render('elemento', {
-        plato,
-        recetas:plato.recetas
+router.get('/updateReceta',(req,res)=> {
+    let nombreR= req.query.nombreR;
+    let usuario = req.query.usuario;
+    let ingredientes = req.query.ingredientes;
+    let imagenR = req.query.imagenR;
+    let personas = req.query.personas;
+    let duracion = req.query.duracion;
+    let pasos = req.query.pasos;
+    let alergenos = req.query.alergenos;
+    let vegano = req.query.vegano;
+    let receta = {
+        nombreR:nombreR, usuario:usuario, ingredientes:ingredientes,imagenR:imagenR,personas:personas,duracion:duracion,
+        pasos: pasos,alergenos:alergenos,vegano:vegano
+    };
+    servidor.aniadirReceta(req.query.id,receta);
+    res.render('receta', {
+        receta: receta
     });
-})
+});
+
+router.get('/loadRecetas',(req,res)=>{
+    let id = req.query.id;
+    let recetas = servidor.getPlato(id).recetas;
+    res.render('recetaIni',{
+        recetas:recetas
+    });
+});
+
 router.get("/platos",(req,res)=>{
     const from = parseInt(req.query.from);
     const to = parseInt(req.query.to);

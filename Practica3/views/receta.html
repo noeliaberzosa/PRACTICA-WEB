@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cocina con la abuela</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="..\CSS\style.css">
+</head>
+
+<body>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h3><strong>{{receta.nombreR}}</strong> - {{receta.usuario}}</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img
+                            src={{receta.imagenR}}  class="img-fluid">
+                    </div>
+                    <div class="container">
+                        <h3></h3>
+                        <div class="row">
+                            <div class="col-md-12">      
+                                <h5><strong>Ingredientes: </strong>{{receta.ingredientes}}</h5>
+                                <h5><strong>Para </strong>{{receta.personas}} personas</h5>
+                                <h5><strong>Duración:</strong> {{receta.duracion}} h</h5>
+                                <h5><strong>Pasos: </strong>{{receta.pasos}}</h5>
+                                <h5><strong>Alérgenos: </strong>{{receta.alergenos}}</h5>
+                                <h5><strong>Vegano: </strong>{{receta.vegano}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
