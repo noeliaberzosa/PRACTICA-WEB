@@ -39,9 +39,10 @@ async function loadRecetas(){
            break
         }
     }
+    if(id!=='new'){
     let response = await fetch(`/loadRecetas?id=${id}`);
     let newRecetas = await response.text();
     let recetas = document.getElementById("recetas");
-    recetas.innerHTML += newRecetas;
+     recetas.innerHTML += newRecetas;}
 }
 loadRecetas();

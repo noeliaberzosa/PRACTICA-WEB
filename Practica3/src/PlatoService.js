@@ -323,6 +323,9 @@ export function loadData() {
 export function addPlato(plato) {
     let id = nextId++;
     plato.id = id.toString();
+    if (plato.recetas==undefined){
+        plato.recetas=new Array()
+    }
     platos.set(plato.id, plato);
     return plato.id;
 }
@@ -410,6 +413,11 @@ export function editarCampos(platoN, plato) {
     }
 }
 export function aniadirReceta(id, nuevaReceta) {
+
+    if (id==='new'){
+        id=nextId-1
+        id=id.toString()
+    }
     if (platos.has(id)) {
         const platoN = platos.get(id);
         if (platoN.recetas == undefined) {
@@ -417,6 +425,8 @@ export function aniadirReceta(id, nuevaReceta) {
         }
         platoN.recetas.push(nuevaReceta);
     }
+    
+    
 }
 
 export function getBuscados(buscado) {

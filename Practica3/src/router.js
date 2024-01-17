@@ -9,8 +9,9 @@ router.get('/', (req, res) => {
     res.render('principal');
 });
 router.post("/new",(req,res)=>{
+    
     let {nombre, imagen, descripcion, origen, tipo, precio, recetas} = req.body;
-    let id= servidor.addPlato({nombre, imagen, descripcion, origen, tipo, precio, recetas});
+    let id= servidor.addPlato({nombre, imagen, descripcion, origen, tipo, precio,recetas});
     existingName.push(nombre);
     res.render('elemento', {
         plato: servidor.getPlato(id),
@@ -76,7 +77,9 @@ router.get('/updateReceta',(req,res)=> {
 
 router.get('/loadRecetas',(req,res)=>{
     let id = req.query.id;
+    console.log(servidor.getPlato(id).recetas)
     let recetas = servidor.getPlato(id).recetas;
+   
     res.render('recetaIni',{
         recetas:recetas
     });
