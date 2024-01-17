@@ -76,8 +76,17 @@ function myOnSubmitFunction(e){
 };
 
 async function cargarReceta(){
-    const response = await fetch(`/plato/:id`);
-    const newRecipe = await response.text();
+
+    var formulario = document.getElementById("formulario");
+    
+    const response = await fetch(`/updatedreceta/:id`,{
+        method: "POST",
+        body: formulario
+    });
+
+    const responseData = await response.json();
+    const newRecipes = responseData.recetas;
+
     const recetas = document.getElementById("recetas");
-    recetas.innerHTML += newRecipe;
+    recetas.innerHTML = newRecipes;
 }

@@ -71,4 +71,5 @@ async function checkNameAvailability() {
     }
     messageDiv.innerHTML = message;
 }
+
 loadMore();

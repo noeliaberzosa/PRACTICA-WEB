@@ -18,9 +18,6 @@ router.post("/new",(req,res)=>{
 });
 router.get('/plato/:id', (req, res) => {
     let plato = servidor.getPlato(req.params.id);
-    if (Object.keys(req.query).length !== 0){
-        servidor.aniadirReceta(req.params.id,req.query,plato)
-    }
 res.render('elemento', { 
     plato,
     recetas: plato.recetas
@@ -59,15 +56,17 @@ router.post('/updated/:id',(req,res)=>{
 });
 
 router.post('/updatedreceta/:id',(req,res)=> {
-    let {nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano} = req.body;
+    let nuevaReceta = req.body;
     let plato = servidor.getPlato(req.params.id);
 
-    servidor.aniadirReceta(req.params.id,{nombreR, usuario, ingredientes, imagenR, personas, duracion, pasos, alergenos, vegano},plato);
+    servidor.aniadirReceta(req.params.id,nuevaReceta,plato);
 
-    res.render('elemento', {
+    let response = {
         plato,
         recetas:plato.recetas
-    });
+    };
+
+    res.json(response);
 })
 router.get("/platos",(req,res)=>{
     const from = parseInt(req.query.from);
