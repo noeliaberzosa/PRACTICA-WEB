@@ -1,4 +1,6 @@
 let next = 0;
+import * as servidor from './PlatoService.js';
+
 async function loadMore(){
     if ( next != -1){
         let from = (next);
@@ -21,15 +23,13 @@ async function search(){
 
 async function filterByOrigen() {
     let fOrigen = document.getElementById("fOrigen").value;
-    const platos = document.getElementsByClassName("plato");
+    const platos = document.getElementById("platos");
+    const imagen = document.getElementById("imagenF");
 
-    for (let plato of platos) {
-        const origen = plato.dataset.origen;
-        if (!(origen.includes(fOrigen))) {
-            plato.style.display = "none"; 
-        } else {
-            plato.style.display = ""; 
-        }
+    let platosBus = servidor.getFiltradosO(origen);
+
+    for (let id of platosBus) {
+        imagen.style.display="none";
     }
 }
 async function filterByTipo(){
