@@ -18,13 +18,19 @@ async function search(){
     platos.innerHTML = newPlatos;
     next = -1;
 }
-async function filterByOrigen(){
+
+async function filterByOrigen() {
     let fOrigen = document.getElementById("fOrigen").value;
-    const response = await fetch(`/filterO?origen=${fOrigen}`);
-    const newPlatos = await response.text();
-    const platos = document.getElementById("platos");
-    platos.innerHTML = newPlatos;
-    next = -1;
+    const platos = document.getElementsByClassName("plato");
+
+    for (let plato of platos) {
+        const origen = plato.dataset.origen;
+        if (!(origen.includes(fOrigen))) {
+            plato.style.display = "none"; 
+        } else {
+            plato.style.display = ""; 
+        }
+    }
 }
 async function filterByTipo(){
     let fTipo = document.getElementById("tipo").value;
